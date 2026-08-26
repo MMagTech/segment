@@ -531,3 +531,29 @@ Notes for the other packs:
 
 31 relevant packs are staged in roms/artwork/ (gnw_ball plus the Tiger
 and Konami handhelds, which wait on the SM510 core).
+
+## SM510 sibling core, written ahead (2026-08-26, night)
+
+`sm510/sm510.lua` is the SM510 core, ported from MAME source ahead of
+having any SM510 ROM, to shorten the path once a Tiger or later-Nintendo
+romset arrives. It is **UNVERIFIED** and says so at the top of the file:
+the SM5A core earned trust by a lockstep trace against MAME, and this one
+has not had that yet because no romset was available. The moment one is,
+verify it the same way before relying on it.
+
+What differs from the SM5A, all encoded and cross-checked against source:
+base-class branch ops (T/TL/TML/TM) rather than TR/TRS; two stack levels;
+SBM sets the RAM high bit for exactly the next instruction (via a one-step
+bmask, set at the end of execute_one); the LCD is two 16-nibble RAM banks
+(a at 0x60, b at 0x70) read column-by-column through get_lcd_row, not the
+SM5A shift latches; and W is wired directly to S (sm510.h update_w_latch),
+so WR/WS output the input strobe as they shift - there is no PTW in the
+SM510 table.
+
+What is checkable without a ROM passed: it loads, resets to the correct
+3/7 vector, runs a full opcode spread for a second with no error, and the
+LCD segment decode is exact - poking lcd_ram_a[3]=0b0101 lights 0.3.0 and
+0.3.2 and nothing else. What is NOT yet checked: instruction-exactness,
+timing, the bs segment, and the ROM image layout (assumed a flat 0x1000
+image; confirm against the first real romset). SM511/SM512 melody is not
+implemented; those add an internal melody ROM on top of this.
