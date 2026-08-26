@@ -1,0 +1,31 @@
+# The gw-libretro core is its own git clone (our fix is on branch
+# compatinit-pointer, pushed to the MMagTech fork, PR #85).
+/gw-libretro/
+
+# Copyright: this is a tool people run on their OWN files. No game data,
+# artwork, or anything built from them belongs in the repo.
+# ROM dumps and MAME external artwork packs (user's own):
+/roms/
+# MADrigal's .mgw simulators (his work):
+/games/
+# generated .mgw, embeds ROM + artwork:
+/games-out/
+# MAME reference sources (GPL, reference only):
+/sm510/ref/
+# screenshots / audio of running games:
+/sm510/evidence/
+# bug-repro screenshots (show third-party artwork):
+/upstream/repro/
+
+# Build products and scratch
+*.o
+*.dylib
+/tools/bench/libretro_bench
+/tools/gw/bsdump
+/sm510/lua
+__pycache__/
+*.pyc
+.DS_Store
+/cfg/
+
+# MAME writes these when a game is run:
