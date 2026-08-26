@@ -39,3 +39,10 @@ own units); MAME artwork packs are their artists' work and require
 credit. Nothing under `roms/`, `games/`, or `games-out/` is committed.
 The MADrigal simulators' obfuscation was his stated wish; no decoder is
 shipped.
+
+## License
+
+BSD-3-Clause (see `LICENSE`). The project's own code is free to use,
+modify, and redistribute, including commercially, with the notice kept.
+The SM5A core (`sm510/sm5a.lua`) is derived from MAME's BSD-3-Clause
+CPU code and retains that attribution to "hap"/MAME.

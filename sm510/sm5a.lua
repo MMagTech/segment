@@ -1,8 +1,13 @@
 -- Sharp SM5A core in Lua.
 --
--- A port of MAME's implementation (src/devices/cpu/sm510: sm510base,
--- sm500, sm5a; BSD-3-Clause, copyright-holders hap, thanks-to Igor),
--- restructured as a single self-contained module with no host
+-- SPDX-License-Identifier: BSD-3-Clause
+-- Derived from the MAME project's SM510-family CPU implementation
+-- (src/devices/cpu/sm510: sm510base, sm500, sm5a), which is
+-- BSD-3-Clause, copyright-holders "hap", thanks-to "Igor". That
+-- copyright and the BSD-3-Clause terms (see the repository LICENSE)
+-- apply to the derived portions of this file and must be retained.
+--
+-- Restructured here as a single self-contained module with no host
 -- dependencies. Behavioural reference is that code, not the datasheet.
 --
 -- The SM5A is the chip inside the early silver/gold Nintendo Game &
