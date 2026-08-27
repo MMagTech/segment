@@ -54,7 +54,7 @@ NAME_ACTION = {
 # friends, and the Tiger handhelds call sm510_tiger, which is how 73 of
 # the 144 games first came back with no CPU at all.
 CPU_CALL = re.compile(r'\b(?:mcfg_cpu_)?(sm5[0-9a-z]+?)_(?:common|dualv|dualh|'
-                      r'tripleh|triplev|tiger|rotated)\b|\bmcfg_cpu_(sm5[0-9a-z]+)\b')
+                      r'tripleh|triplev|tiger\w*|rotated)\b|\bmcfg_cpu_(sm5[0-9a-z]+)\b')
 SCREENS = {'dualv': 2, 'dualh': 2, 'tripleh': 3, 'triplev': 3}
 
 
@@ -73,7 +73,7 @@ def _body_after(src, pos):
 def parse(src):
     # machine-config bodies, to learn each game's CPU
     cfg, nscreens = {}, {}
-    for m in re.finditer(r'void\s+(\w+)_state::(\w+)\s*\(machine_config\s*&config\)', src):
+    for m in re.finditer(r'void\s+(\w+)_state::(\w+)\s*\(machine_config\s*&\s*config\)', src):
         body = _body_after(src, m.end())
         hit = CPU_CALL.search(body)
         if hit:
@@ -81,7 +81,7 @@ def parse(src):
             kind = re.search(r'_(dualv|dualh|tripleh|triplev)\b', hit.group(0))
             nscreens[m.group(2)] = SCREENS.get(kind.group(1), 1) if kind else 1
         else:
-            m2 = re.search(r'(\w+)_state::(\w+)\(config\)', body)
+            m2 = re.search(r'(?:(\w+)_state::)?(\w+)\(config\)', body)
             cfg[m.group(2)] = ('->', m2.group(2)) if m2 else None
 
     def cpu_of(name, seen=()):

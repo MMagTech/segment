@@ -139,5 +139,9 @@ English and a foreign edition to choose between.
   with a SYNTHETIC repro .mgw (a plain Lua unit creating a few hundred
   large solid sprites - no ROM, no artwork, freely attachable), the
   offending line, and a two-line fix (bounds-check and clamp, or grow
-  the buffer). Motivation gets one sentence. Held until the dual-screen
-  work confirms whether more core limits belong in the same report.
+  the buffer). Motivation gets one sentence. User direction 2026-08-27: the issue
+  links the public repo, and the README must serve two readers by then,
+  a semi-technical account and plain instructions for someone who just
+  wants to build games, so issue readers can pick up the tool alongside
+  the synthetic repro if they choose. Sequence: converter first (so the
+  instructions are one command), README second, filing draft third.

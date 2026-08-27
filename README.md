@@ -10,16 +10,68 @@ verified instruction-exact against MAME, the community's scanned unit
 artwork, working touch buttons, and sound into one file. Nothing here
 patches the core: the chip emulator travels inside the game, so the
 result plays anywhere the existing 59 .mgw games play. You bring your
-own ROMs and artwork packs; this repository is only the machinery
-(see Copyright below).
+own ROMs and artwork packs; this repository is only the machinery.
 
-Verified so far: three CPU cores (SM5A, SM510, SM511/SM512 melody), all
-lockstep-traced against MAME, and over a hundred games built and
-exercised headless, including taps proven byte-identical to button
-presses. The technical journal is `FINDINGS.md`; current status and
-next steps are `NEXT.md`.
+## Building a game (no expertise required)
 
-Two independent tracks:
+You need: python3 with Pillow and numpy, and `rsvg-convert`
+(`brew install librsvg` on a Mac, `apt install librsvg2-bin` on Linux).
+You supply: a MAME romset zip for the game, named as MAME names it
+(e.g. `gnw_ball.zip`), and optionally the matching MAME artwork pack.
+
+One command:
+
+    python3 tools/gw/convert.py gnw_ball.zip gnw_ball_artwork.zip
+
+That prints what it finds at each step and writes
+`Ball (Nintendo).mgw`, which you drop into RetroArch like any other
+game for the "Handheld Electronic Game" core. Leave the artwork zip off
+and the game gets a clean generated shell instead of the photographed
+unit; run the command again with the pack later and the same game
+upgrades in seconds. If a gw-libretro core binary is on your machine
+the tool finishes by booting the game headless and pressing Start, and
+refuses to hand you a file that does not respond.
+
+`COVERAGE.md` tracks every game the MAME driver knows: which are
+built, which wait on an artwork scan, which wait on a ROM dump, and
+which wait on a chip port.
+
+## How it works (the semi-technical version)
+
+The gw-libretro core is a small Lua runtime. The 59 games it shipped
+with are hand-written simulations; this project instead ports the
+actual Sharp chips to Lua and packs the emulator inside each game file:
+
+- `sm510/sm5a.lua`, `sm510/sm510.lua`, `sm510/sm511.lua` — the Sharp
+  SM5A, SM510 and SM511/SM512 (melody) cores, each verified by lockstep
+  instruction trace against MAME and by rendering the lit-segment set
+  through the romset's own SVG against MAME's snapshot. `sm530.lua` is
+  written to the same recipe, awaiting assets to verify against.
+- `tools/gw/svg2segs.py` — extracts every LCD segment from a romset's
+  SVG as a positioned bitmap.
+- `tools/gw/artwork.py` — renders a MAME external artwork pack (any of
+  the wildly varied layout shapes in circulation) down to one panel
+  image plus each screen's window, and locates the physical buttons by
+  compositing the pack's own pressed-state overlays.
+- `tools/gw/extract_inputs.py` — reads every game's button wiring
+  (input matrix columns, strobe, the BA/B pins and their polarity) out
+  of MAME's driver source into `inputs.json`, which ships here so users
+  never need MAME's source.
+- `tools/gw/build_mgw.py` — packages ROM + segments + panel + wiring
+  into the .mgw, generating the per-game Lua shell from templates, and
+  sizing everything to fit the stock core's fixed sprite budget.
+- `tools/gw/convert.py` — the one-command wrapper around all of the
+  above, ending in a headless boot-and-respond self-test.
+- `tools/bench/` — the headless libretro harness used for every
+  verification claim: it can prove a tap on the drawn button produces
+  output byte-identical to the equivalent joypad press.
+
+`FINDINGS.md` is the full technical journal: the chip-core
+verifications, the artwork-format survey, the stock core's 384k-pixel
+save-under buffer (and the three distinct ways exceeding it presents),
+and every other trap so the next person does not pay for it twice.
+
+## Two independent tracks
 
 ## 1. A pointer fix for the 59 existing games
 

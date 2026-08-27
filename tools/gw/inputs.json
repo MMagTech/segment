@@ -1880,7 +1880,7 @@
     "time": 1
    }
   ],
-  "cpu": null,
+  "cpu": "sm5a",
   "fixed_column": null,
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
@@ -1963,7 +1963,7 @@
     "b1": 4
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": null,
   "maker": "Konami",
   "mux_columns": 3,
@@ -2117,7 +2117,7 @@
     "sound": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": null,
   "maker": "Konami",
   "mux_columns": 2,
@@ -2590,7 +2590,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 6,
   "maker": "Tiger Electronics",
   "mux_columns": 6,
@@ -3041,7 +3041,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 6,
   "maker": "Tiger Electronics",
   "mux_columns": 6,
@@ -3590,7 +3590,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 6,
   "maker": "Tiger Electronics",
   "mux_columns": 6,
@@ -3668,7 +3668,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 6,
   "maker": "Tiger Electronics",
   "mux_columns": 6,
@@ -4642,7 +4642,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 5,
   "maker": "Tiger Electronics",
   "mux_columns": 5,
@@ -4681,7 +4681,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 5,
   "maker": "Tiger Electronics",
   "mux_columns": 5,
@@ -4800,7 +4800,7 @@
     "start": 8
    }
   ],
-  "cpu": null,
+  "cpu": "sm511",
   "fixed_column": 6,
   "maker": "Tiger Electronics",
   "mux_columns": 6,
@@ -5137,7 +5137,7 @@
     "time": 1
    }
   ],
-  "cpu": null,
+  "cpu": "sm5a",
   "fixed_column": null,
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,

@@ -497,7 +497,7 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     root = os.path.dirname(os.path.dirname(here))
 
-    if chip in ('sm511', 'sm512'):
+    if chip in ('sm511', 'sm512', 'sm530'):
         # melody chips: same shell as the SM510 with the melody ROM and a
         # note-sample bank. The chip can produce 12 notes in 2 octaves;
         # frequencies follow the datasheet tone-cycle table exactly as
@@ -523,10 +523,12 @@ def main():
         if wiring is None:
             raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
         tmpl = open(os.path.join(here, 'game_sm511.lua.tmpl')).read()
-        tmpl = tmpl.replace('@CHIP@', chip).replace('@NOTES@', notelua)
+        tmpl = tmpl.replace('@CHIP@', chip).replace('@NOTES@', notelua).replace("loadunit 'sm511'", "loadunit '%s'" % unitname).replace('sm511.new', unitname + '.new')
         files['game.lua'] = render_game(tmpl, title, wiring, layout,
                                         sdefs, tapzones).encode()
-        files['sm511.lua'] = open(os.path.join(root, 'sm510/sm511.lua'), 'rb').read()
+        corefile = 'sm510/sm530.lua' if chip == 'sm530' else 'sm510/sm511.lua'
+        unitname = 'sm530' if chip == 'sm530' else 'sm511'
+        files[unitname + '.lua'] = open(os.path.join(root, corefile), 'rb').read()
         files['melody.bin'] = open(os.path.join(os.path.dirname(rom_path),
                                                 'melody.bin'), 'rb').read()
     elif chip == 'sm510':
