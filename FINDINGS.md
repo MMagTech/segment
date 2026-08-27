@@ -1021,3 +1021,32 @@ pad: it is a fishing calculator whose inputs are a 12-key keypad matrix
 with no retropad equivalent. It is not a mystery either, just the same
 keypad-device case as nummunch/tigarden/trshutvoy, which need a drawn
 keypad grid to be usable.
+
+## Automatic tap zones without press images: not reliably solvable (2026-08-27)
+
+The ~100 games whose artwork packs ship no pressed-state overlays cannot
+have their buttons located the clean way (composite-the-press-image).
+Three detection approaches on the composited panel were tried and none
+is shippable:
+
+1. Local contrast vs a blurred background: finds small pill buttons,
+   misses large smooth round ones (the blur tracks them).
+2. Distance from the case's dominant colour: works on plain cases,
+   returns nothing on units with bold coloured frames (the border
+   dominates the statistics).
+3. Region-constrained blobs (search only the strips outside the LCD,
+   inset past the frame, cross-check count vs wiring): best of the
+   three, and genuinely good on some units (gnw_dkong finds the d-pad
+   and JUMP), but noisy on busy cases (16 false hits on ktmnt2's green
+   shell) and partial on most. Evidence:
+   sm510/evidence/tapzone_detection_attempt.jpg.
+
+The blocker is not just detection accuracy: there is no automatic ground
+truth. With press images, the element's inputtag/inputmask names which
+action a located button drives, and a tap can be proven byte-identical
+to that button's pad press. Without them, even a perfectly located blob
+has no verified mapping to an action, and a mis-assigned tap zone is
+worse than none. So this stays manual/deferred rather than shipping
+guessed zones. The games are all fully controller-playable meanwhile,
+and any pack that later gains press images upgrades automatically
+through the existing path.

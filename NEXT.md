@@ -62,7 +62,12 @@ English and a foreign edition to choose between.
    - trobhood: ports used PORT_INCLUDE; the extractor resolves it now,
      and Robin Hood responds.
 
-2. ~~Button rectangles from the art.~~ **Mostly done 2026-08-27.**
+2. ~~Button rectangles from press images.~~ **Done.** Automatic
+   detection WITHOUT press images was attempted three ways and is not
+   shippable (no ground truth to verify the action mapping); see
+   FINDINGS. Deferred to manual per-game data if ever wanted.
+
+2b. **Button rectangles from press images (the working path).**
    The packs carry the answer: each ships a full-size overlay drawing one
    button pressed, tagged with the input it reports, so compositing it
    over the idle panel and taking the bounding box of the change locates
