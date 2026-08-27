@@ -5,25 +5,26 @@ regenerate after any batch or asset change.
 
 | | count |
 |---|---|
-| games in the MAME driver | 169 |
-| built and installed | 155 |
-| of which drawn-panel (no artwork pack yet) | 11 |
-| blocked: no ROM dump locally | 11 |
+| games in the MAME driver | 175 |
+| built and installed | 167 |
+| of which drawn-panel (no artwork pack yet) | 14 |
+| blocked: no ROM dump locally | 0 |
 | blocked: chip not ported (sm530) | 3 |
-| have ROM, awaiting artwork (playable via drawn panel) | 3 |
-| have ROM + artwork, not yet built | 0 |
+| have ROM, awaiting artwork (playable via drawn panel) | 4 |
+| have ROM + artwork, not yet built | 4 |
 
-## Have ROM, no artwork pack (3)
+## Have ROM, no artwork pack (4)
 
 Buildable today with the generated drawn panel; each rebuilds into its authentic shell in seconds once a pack exists.
 
 | romset | chip | title |
 |---|---|---|
+| elbaskb | sm5a | Basketbol (Elektronika) |
 | nsmb3 | sm530 | Super Mario Bros. 3 (Nelsonic) |
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
 
-## Built with the drawn panel, awaiting artwork (11)
+## Built with the drawn panel, awaiting artwork (14)
 
 Playable now; watching for artwork packs to upgrade them.
 
@@ -33,36 +34,16 @@ Playable now; watching for artwork packs to upgrade them.
 | gnw_judgeo | sm5a | Judge (Nintendo, green version) |
 | gnw_mariocmta | sm511 | Mario's Cement Factory (Nintendo, Table Top, version CM-72A) |
 | kosmicmt | sm5a | Kosmicheskiy most (Elektronika) |
+| naltair | sm5a | Altair (Nauchpribor) |
 | nummunch | sm511 | Electronic Number Muncher (VTech) |
 | nupogodi | sm5a | Nu, pogodi! (Elektronika) |
 | rkosmosa | sm5a | Razvedchiki kosmosa (Elektronika) |
+| tddragon2 | sm510 | Double Dragon II - The Revenge (Tiger Electronics, Tiger) |
 | tigarden | sm510 | Thief in Garden (Tronica) |
 | trshutvoy | sm510 | Shuttle Voyage (Tronica) |
 | trsrescue | sm510 | Space Rescue (Tronica) |
-| vespovar | sm5a | Vesyolyy povar (Elektronika) |
-
-## Artwork exists, no ROM dump locally (8)
-
-Several were added to MAME after 0.260; a newer romset collection may cover them.
-
-| romset | chip | title |
-|---|---|---|
-| kchqflag | sm511 | Chequered Flag (Konami, handheld) |
-| tmigmax | sm511 | Mighty Max (Tiger Electronics, Tiger) |
-| tpitfight | sm510 | Pit-Fighter (Tiger Electronics, Tiger) |
-| trclchick | sm510 | Clever Chicken (Tronica) |
-| trdivadv | sm510 | Diver's Adventure (Tronica) |
-| trspacadv | sm511 | Space Adventure (Tronica) |
-| trtreisl | sm511 | Treasure Island (Tronica) |
-| vesarif | sm511 | Vesolaya arifmetika (Elektronika) |
-
-## Neither ROM nor artwork locally (3)
-
-| romset | chip | title |
-|---|---|---|
-| naltair | sm5a | Altair (Nauchpribor) |
-| tddragon2 | sm510 | Double Dragon II - The Revenge (Tiger Electronics, Tiger) |
 | uchitari | sm511 | Uchitel' arifmetiki (Elektronika, prototype?) |
+| vespovar | sm5a | Vesyolyy povar (Elektronika) |
 
 ## ROM present, chip not ported yet (3)
 
@@ -73,4 +54,15 @@ Next core ports, same recipe as the three verified ones.
 | nsmb3 | sm530 | Super Mario Bros. 3 (Nelsonic) |
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
+
+## Assets complete but unbuilt (4)
+
+Should be empty; anything here means the batch skipped it.
+
+| romset | chip | title |
+|---|---|---|
+| ecircus | sm5a | Circus (Elektronika) |
+| kosmicpt | sm5a | Kosmicheskiy polyot (Elektronika) |
+| morataka | sm5a | Morskaja ataka (Elektronika) |
+| nochnyev | sm5a | Nochnye vorishki (Elektronika) |
 

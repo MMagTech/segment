@@ -123,7 +123,7 @@ def parse(src):
         return base
 
     out = {}
-    for m in re.finditer(r'^(?:SYST|CONS|COMP|GAME)\(\s*(?:\d{4}|\?{4})\s*,\s*(\w+)\s*,'
+    for m in re.finditer(r'^(?:SYST|CONS|COMP|GAME)\(\s*[\d?]{4}\s*,\s*(\w+)\s*,'
                          r'\s*\w+\s*,\s*\w+\s*,\s*(\w+)\s*,\s*(\w+)\s*,\s*(\w+)_state\s*,'
                          r'\s*\w+\s*,\s*"([^"]*)"\s*,\s*"([^"]*)"', src, re.M):
         rom, machine, inp, cls, maker, title = m.groups()

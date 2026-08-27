@@ -146,6 +146,40 @@
   "screens": 1,
   "title": "Biathlon"
  },
+ "ecircus": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Circus (Elektronika)"
+ },
  "ehockey": {
   "columns": [
    {},
@@ -179,6 +213,35 @@
   "pins": {},
   "screens": 1,
   "title": "Hockey (Elektronika)"
+ },
+ "elbaskb": {
+  "columns": [
+   {
+    "b1": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "b1": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {}
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {}
+  ],
+  "maker": "Elektronika",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Basketbol (Elektronika)"
  },
  "gnw_ball": {
   "columns": [
@@ -2694,6 +2757,40 @@
   "screens": 1,
   "title": "Kosmicheskiy most"
  },
+ "kosmicpt": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Kosmicheskiy polyot"
+ },
  "krybolov": {
   "columns": [
    {},
@@ -3039,6 +3136,40 @@
   "screens": 1,
   "title": "Kvaka-zadavaka"
  },
+ "morataka": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Morskaja ataka"
+ },
  "naltair": {
   "columns": [
    {},
@@ -3067,6 +3198,40 @@
   "pins": {},
   "screens": 1,
   "title": "Altair (Nauchpribor)"
+ },
+ "nochnyev": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Nochnye vorishki"
  },
  "nsmb3": {
   "columns": [
@@ -7496,5 +7661,43 @@
   "pins": {},
   "screens": 1,
   "title": "Vesyolye futbolisty"
+ },
+ "vinnpukh": {
+  "columns": [
+   {
+    "jump": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "labels": [
+   {
+    "8": "Jump"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Vinni-Pukh"
  }
 }
