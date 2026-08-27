@@ -1076,3 +1076,27 @@ worse than none. So this stays manual/deferred rather than shipping
 guessed zones. The games are all fully controller-playable meanwhile,
 and any pack that later gains press images upgrades automatically
 through the existing path.
+
+## Real unit artwork found: backdrop-only 32 -> 6 (2026-08-27)
+
+The "backdrop-only" packs (LCD art with no console, nothing to tap) were
+a property of the artwork versions on hand, not the games. Better packs
+carrying the full photographed unit exist in DarthMarino's shared
+repository (the MAME "New Dumps" thread on forums.bannister.org links it:
+a Google Drive with TIGER / KONAMI / Entex-LED / NON-NINTENDO subfolders,
+folder id 1XQrO71kQ8pa97LEfJ9RqiSQwf8h99Odl).
+
+Swapping those in upgraded 26 games from bare LCD art to authentic
+consoles: 21 from a first Tiger set (Sonic 1/2, Mortal Kombat, X-Men,
+Altered Beast, Double Dragon, Gauntlet, ...) and 5 more from the fuller
+TIGER folder (Addams Family, Double Dragon 3, Independence Day, MC
+Hammer, Robocop 2). Each now renders a "Unit Only" view with the d-pad,
+labelled action buttons and function row visible, so they also move into
+the hand-placeable tap-zone column.
+
+The 6 still backdrop-only: tgaiden (Ninja Gaiden - its pack genuinely has
+no unit scan, only bg + an LED overlay); the three Konami handhelds
+(kdribble, kloneran, knfl - in the Drive's KONAMI subfolder, not yet
+pulled); and trtreisl + vinnpukh (in NON-NINTENDO, not yet pulled).
+Compare packs by rendering both and checking whether the LCD fills >55%
+of the panel; a real unit sits near 0.14, a backdrop near 0.85.
