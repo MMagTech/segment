@@ -403,7 +403,39 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     root = os.path.dirname(os.path.dirname(here))
 
-    if chip == 'sm510':
+    if chip in ('sm511', 'sm512'):
+        # melody chips: same shell as the SM510 with the melody ROM and a
+        # note-sample bank. The chip can produce 12 notes in 2 octaves;
+        # frequencies follow the datasheet tone-cycle table exactly as
+        # sm511.lua computes them.
+        TONE = [0,0,7,8,8,9,9,10,11,11,12,13,14,14,0,0,
+                0,0,8,8,9,9,10,11,11,12,13,13,14,15,0,0,
+                0,0,8,8,9,9,10,10,11,12,12,13,14,15,0,0,
+                0,0,8,9,9,10,10,11,11,12,13,14,14,15,0,0]
+        notes = []
+        for note in range(2, 14):
+            for shift in (0, 1):
+                total = sum(TONE[(d << 4) | note] << shift for d in range(4))
+                hz = 32768.0 / total
+                if hz not in [n[0] for n in notes]:
+                    notes.append((hz, 'mel_%d.pcm' % round(hz)))
+        for hz, fn in notes:
+            files[fn] = square_pcm(hz)
+        notelua = '\n'.join('  { %.2f, \'%s\' },' % (hz, fn) for hz, fn in notes)
+
+        sdefs = ["  { '%s', %d, %d, '%s', %d }," % (name, m['x'], m['y'], fn, scr + 1)
+                 for scr, name, m, fn in allsegs]
+        wiring = load_inputs().get(shortname)
+        if wiring is None:
+            raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
+        tmpl = open(os.path.join(here, 'game_sm511.lua.tmpl')).read()
+        tmpl = tmpl.replace('@CHIP@', chip).replace('@NOTES@', notelua)
+        files['game.lua'] = render_game(tmpl, title, wiring, layout,
+                                        sdefs, tapzones).encode()
+        files['sm511.lua'] = open(os.path.join(root, 'sm510/sm511.lua'), 'rb').read()
+        files['melody.bin'] = open(os.path.join(os.path.dirname(rom_path),
+                                                'melody.bin'), 'rb').read()
+    elif chip == 'sm510':
         # SM510: segdefs need only (tag, x, y, rle); segments are looked up
         # by their x.y.z tag in cpu:segments(). Rebuild from the manifest.
         sdefs = ["  { '%s', %d, %d, '%s', %d }," % (name, m['x'], m['y'], fn, scr + 1)
