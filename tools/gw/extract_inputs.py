@@ -130,7 +130,7 @@ def parse(src):
         body = resolve_ports(inp)
         if body is None:
             continue
-        cols, pins, order = {}, {}, []
+        cols, pins, order, labels = {}, {}, [], {}
         cur = None
         for line in body.splitlines():
             ms = re.search(r'PORT_START\("([^"]+)"\)', line)
@@ -158,6 +158,10 @@ def parse(src):
                 continue                      # reset pin, not a K input
             if cur.startswith('IN.'):
                 cols[cur][act] = mask
+                if label:
+                    labels.setdefault(cur, {})[mask] = label.group(1)
+                elif comment:
+                    labels.setdefault(cur, {})[mask] = comment.group(1).strip()
             elif cur in ('BA', 'B'):
                 # only a real input; the cheat jumpers are PORT_CONFNAME
                 pins[cur.lower()] = {'action': act, 'active_low': active == 'LOW'}
@@ -167,6 +171,7 @@ def parse(src):
             'cpu': cpu_of(machine), 'screens': screens_of(machine),
             'title': title, 'maker': maker,
             'columns': [cols[c] for c in order],   # IN.0 first
+            'labels': [labels.get(c, {}) for c in order],
             'mux_columns': ncols,                  # the rest are strobed
             'fixed_column': (len(order) - 1) if fixed_last and order else None,
             'pins': pins,

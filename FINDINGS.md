@@ -1005,3 +1005,19 @@ crash do so in the real frontend). The generator is kept for the filing
 session, where it needs tuning against a live RetroArch build; the bug
 itself is real and reproduced by the actual Tiger/dual-screen games,
 which is what the pixel-budget guard exists for.
+
+## The "input mysteries" were a sweep artifact (2026-08-27, resolved)
+
+tgaiden (Ninja Gaiden) and tvindictr (Vindicators) were flagged as
+booting but ignoring input. They do not: Ninja Gaiden responds to
+Select, Vindicators to six different buttons. Neither has a "Game A",
+and the verification sweep only pressed Game A/Start (retropad id 3), so
+it declared no-response for any game that wakes on a different button.
+The sweep now tries Game A, Select/Pause, L1 and A in turn before
+reporting a failure. Nothing was wrong with those two builds.
+
+bassmate (Bassmate Computer) genuinely responds to nothing through the
+pad: it is a fishing calculator whose inputs are a 12-key keypad matrix
+with no retropad equivalent. It is not a mystery either, just the same
+keypad-device case as nummunch/tigarden/trshutvoy, which need a drawn
+keypad grid to be usable.

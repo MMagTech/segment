@@ -51,8 +51,9 @@ English and a foreign edition to choose between.
    both in FINDINGS: the stock core's 384k-pixel sprite save-under
    budget (build now measures worst case and rescales the panel to
    fit), and Tiger's IPT_START wiring. Known issues, all Tiger:
-   - tgaiden, tvindictr: build and run but ignore all input; wiring is
-     identical to working siblings (tbatman), cause not yet found.
+   - tgaiden, tvindictr: RESOLVED, not bugs. They respond fine (to
+     Select / other buttons); the old sweep only tried Game A. bassmate
+     is a keypad calculator, needs the keypad grid.
    - tbatfor, tjdredd, trockteer: their segments stack ~4 layers of
      75%-alpha artwork over the whole screen, so fitting the core's
      budget forces the panel down to ~240px wide. Built and responding,

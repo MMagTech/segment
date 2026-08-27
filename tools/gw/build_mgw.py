@@ -77,7 +77,51 @@ def encode_rle(w, h, rgba, bgcolor=None):
 
 # ---------------------------------------------------------------- panel
 
+def keypad_buttons(wiring):
+    """Every labeled K bit as (action, label, column_index, mask), for a
+    game whose controls are a bank of named function keys rather than a
+    joystick. Returns [] when the game has fewer than five named keys."""
+    labels = wiring.get('labels', [])
+    keys = []
+    for i, col in enumerate(wiring['columns']):
+        lab = labels[i] if i < len(labels) else {}
+        for act, mask in col.items():
+            name = lab.get(str(mask))
+            if name:
+                keys.append((act, name, i, mask))
+    return keys if len(keys) >= 5 else []
+
+
+def keypad_layout(wiring, keys, lw, lh):
+    """An LCD with a labeled grid of function keys beneath it, each a tap
+    zone. Used for calculators and quiz devices (Bassmate, Number
+    Muncher) that have no joystick to draw."""
+    cols = 4
+    rows = (len(keys) + cols - 1) // cols
+    kw, kh, gap = 150, 60, 18
+    grid_w = cols * kw + (cols - 1) * gap
+    W = max(560, lw + 60, grid_w + 60)
+    lx = (W - lw) // 2
+    ly = 64
+    H = ly + lh + 30 + rows * (kh + 26) + 20
+    x0 = (W - grid_w) // 2
+    y0 = ly + lh + 26
+    buttons = []
+    for idx, (act, name, ci, mask) in enumerate(keys):
+        r, c = idx // cols, idx % cols
+        x = x0 + c * (kw + gap)
+        y = y0 + r * (kh + 26)
+        buttons.append({'shape': 'key', 'act': 'key%d' % idx, 'label': name,
+                        'rect': [x, y, kw, kh], 'col': ci, 'mask': mask})
+    return {'panel_w': W, 'panel_h': H, 'lcd_x': lx, 'lcd_y': ly,
+            'lcd_w': lw, 'lcd_h': lh, 'artwork': False,
+            'lcds': [(lx, ly, lw, lh)], 'buttons': buttons, 'keypad': True}
+
+
 def panel_layout(wiring, lw, lh):
+    keys = keypad_buttons(wiring)
+    if keys:
+        return keypad_layout(wiring, keys, lw, lh)
     """Derive the drawn panel's geometry from what the game's wiring
     says exists: paired side buttons, a d-pad, action buttons, and a
     pill row. Returns the layout dict main() expects, with every drawn
@@ -213,6 +257,17 @@ def build_panel(segdir, layout, title='LCD'):
   <text x="{cx}" y="{cy+r+20}" text-anchor="middle"
     font-family="Helvetica Neue, Helvetica" font-size="12"
     font-weight="bold" fill="#6b6b70" letter-spacing="1">{b['label']}</text>''')
+        elif b['shape'] == 'key':
+            x, y, w, h = b['rect']
+            lbl = b['label'][:16]
+            parts.append(f'''
+  <rect x="{x}" y="{y+2}" width="{w}" height="{h}" rx="10" fill="#00000022"/>
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#3a3a42"/>
+  <rect x="{x+1.5}" y="{y+1.5}" width="{w-3}" height="{h-3}" rx="9"
+    fill="none" stroke="#5a5a64" stroke-width="1"/>
+  <text x="{x+w//2}" y="{y+h//2+4}" text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica" font-size="13"
+    font-weight="bold" fill="#f0f0f2">{lbl}</text>''')
         else:
             x, y, w, h = b['rect']
             parts.append(f'''
@@ -320,7 +375,7 @@ def load_inputs():
     return json.load(open(path)) if os.path.exists(path) else {}
 
 
-def render_game(tmpl, title, wiring, layout, segdefs, tapzones):
+def render_game(tmpl, title, wiring, layout, segdefs, tapzones, keypad=None):
     """Fill a game template from the wiring extracted by
     extract_inputs.py. Column indices go 1-based for Lua. Both chips
     read K the same way; only what does the selecting differs, and the
@@ -328,10 +383,14 @@ def render_game(tmpl, title, wiring, layout, segdefs, tapzones):
     cols = wiring['columns']
     fixed = wiring['fixed_column']
     btn, actions = [], []
-    for i, col in enumerate(cols):
-        for act in sorted(col):
-            btn.append("  [ '%s' ] = { %d, %d }," % (act, i + 1, col[act]))
-            actions.append(act)
+    if keypad:
+        for b in keypad:
+            btn.append("  [ '%s' ] = { %d, %d }," % (b['act'], b['col'] + 1, b['mask']))
+    else:
+        for i, col in enumerate(cols):
+            for act in sorted(col):
+                btn.append("  [ '%s' ] = { %d, %d }," % (act, i + 1, col[act]))
+                actions.append(act)
     pins = wiring.get('pins', {})
     for pin in ('ba', 'b'):
         if pin in pins:
@@ -490,7 +549,7 @@ def main():
     else:
         for b in layout['buttons']:
             r = b['rect']
-            pad = 14 if b['shape'] == 'round' else 8
+            pad = 14 if b['shape'] == 'round' else 4
             tapzones.append("  { %d, %d, %d, %d, '%s' }," %
                             (r[0]-pad, r[1]-pad, r[2]+2*pad, r[3]+2*pad, b['act']))
 
@@ -541,7 +600,8 @@ def main():
             raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
         tmpl = open(os.path.join(here, 'game_sm510.lua.tmpl')).read()
         files['game.lua'] = render_game(tmpl, title, wiring, layout,
-                                        sdefs, tapzones).encode()
+                                        sdefs, tapzones,
+                                        keypad=layout.get('buttons') if layout.get('keypad') else None).encode()
         files['sm510.lua'] = open(os.path.join(root, 'sm510/sm510.lua'), 'rb').read()
     else:
         wiring = load_inputs().get(shortname)
@@ -549,7 +609,8 @@ def main():
             raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
         tmpl = open(os.path.join(here, 'game_sm5a.lua.tmpl')).read()
         files['game.lua'] = render_game(tmpl, title, wiring, layout,
-                                        segdefs, tapzones).encode()
+                                        segdefs, tapzones,
+                                        keypad=layout.get('buttons') if layout.get('keypad') else None).encode()
         files['sm5a.lua'] = open(os.path.join(root, 'sm510/sm5a.lua'), 'rb').read()
 
     files['rom.bin'] = open(rom_path, 'rb').read()

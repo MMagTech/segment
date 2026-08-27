@@ -17,6 +17,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -41,6 +51,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Elektronika",
   "mux_columns": 3,
   "pins": {},
@@ -68,6 +88,24 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Compute",
+    "2": "Alarm"
+   },
+   {
+    "1": "Wind",
+    "2": "Cover",
+    "4": "Time of Day",
+    "8": "Water Temp F"
+   },
+   {
+    "1": "Water Clarity",
+    "2": "Structure",
+    "4": "Water Depth(ft)",
+    "8": "Season"
+   }
+  ],
   "maker": "Telko / Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -92,6 +130,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -116,6 +164,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -132,6 +190,13 @@
   ],
   "cpu": "sm5a",
   "fixed_column": 0,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 0,
   "pins": {
@@ -166,6 +231,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Eject"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -191,6 +267,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Eject"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -214,6 +301,20 @@
   ],
   "cpu": "sm512",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Double Down",
+    "2": "Bet x10 / Hit",
+    "4": "Bet x1 / Stand",
+    "8": "Enter"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -253,6 +354,20 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {},
+   {},
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 7,
   "pins": {},
@@ -276,6 +391,15 @@
   ],
   "cpu": "sm512",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -299,6 +423,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -321,6 +454,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -346,6 +489,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Jump"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -371,6 +525,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Jump"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -392,6 +557,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -431,6 +605,20 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {},
+   {},
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 7,
   "pins": {},
@@ -457,6 +645,18 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Jump"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -483,6 +683,18 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Jump"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -509,6 +721,18 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Jump"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -535,6 +759,18 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Jump"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -574,6 +810,20 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {},
+   {},
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 7,
   "pins": {},
@@ -598,6 +848,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -617,6 +877,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -649,6 +919,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -665,6 +944,13 @@
   ],
   "cpu": "sm5a",
   "fixed_column": 0,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 0,
   "pins": {
@@ -697,6 +983,20 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "1",
+    "2": "2",
+    "4": "3",
+    "8": "4"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -723,6 +1023,18 @@
   ],
   "cpu": "sm512",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Jump"
+   },
+   {
+    "1": "Time",
+    "2": "Continue",
+    "4": "Game",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -749,6 +1061,18 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Spray"
+   },
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -768,6 +1092,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -796,6 +1130,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -828,6 +1172,20 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "P2 Dodge",
+    "2": "P2 Hit",
+    "4": "P1 Dodge",
+    "8": "P1 Hit"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -851,6 +1209,20 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "P2 Dodge",
+    "2": "P2 Hit",
+    "4": "P1 Dodge",
+    "8": "P1 Hit"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -872,6 +1244,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -896,6 +1277,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -919,6 +1310,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -943,6 +1343,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -966,6 +1376,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -988,6 +1407,17 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Open"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1010,6 +1440,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Open"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1032,6 +1473,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Open"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1053,6 +1505,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1075,6 +1536,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1098,6 +1568,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1122,6 +1601,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -1143,6 +1632,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1162,6 +1660,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -1192,6 +1700,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1211,6 +1728,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -1241,6 +1768,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1260,6 +1796,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {
@@ -1291,6 +1837,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Punch"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1317,6 +1874,17 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "2": "Time"
+   },
+   {
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   },
+   {}
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -1338,6 +1906,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1363,6 +1940,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Jump"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -1388,6 +1976,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game",
+    "4": "Alarm"
+   },
+   {},
+   {
+    "1": "Jump"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -1410,6 +2009,17 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Hit"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1433,6 +2043,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game A",
+    "4": "Game B",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1455,6 +2074,17 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Shooter"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1477,6 +2107,17 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Hit"
+   },
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1498,6 +2139,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1519,6 +2169,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game A",
+    "4": "Game B",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 2,
   "pins": {},
@@ -1535,6 +2194,13 @@
   ],
   "cpu": "sm5a",
   "fixed_column": 0,
+  "labels": [
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 0,
   "pins": {
@@ -1570,6 +2236,20 @@
   ],
   "cpu": "sm512",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Water of Life"
+   },
+   {
+    "1": "Attack"
+   },
+   {
+    "1": "Time",
+    "2": "Continue",
+    "4": "Game",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Nintendo",
   "mux_columns": 3,
   "pins": {},
@@ -1597,6 +2277,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1623,6 +2312,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1649,6 +2347,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Level/Time",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1671,6 +2378,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {
+    "8": "Sound"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -1694,6 +2410,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {
+    "8": "Sound"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -1718,6 +2443,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound"
+   },
+   {
+    "1": "Power On/Start"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1744,6 +2478,16 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Level Select",
+    "2": "Sound"
+   },
+   {
+    "1": "Power On/Start"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1770,6 +2514,16 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "8": "Sound"
+   },
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1792,6 +2546,13 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Power On/Start",
+    "8": "Sound"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -1814,6 +2575,14 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -1837,6 +2606,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {
+    "8": "Sound"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -1863,6 +2641,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1882,6 +2669,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {
@@ -1915,6 +2712,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -1941,6 +2748,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Continue",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1965,6 +2781,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -1992,6 +2817,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Game Select",
+    "2": "Sound",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -2018,6 +2852,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "2": "Pause",
+    "4": "Sound",
+    "8": "Power On/Start"
+   },
+   {},
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -2044,6 +2887,16 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {
+    "8": "Sound"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -2070,6 +2923,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound",
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {}
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -2096,6 +2958,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Sound"
+   },
+   {
+    "1": "Power On/Start"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 3,
   "pins": {},
@@ -2119,6 +2990,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "4": "Pause",
+    "8": "Power On/Start"
+   },
+   {
+    "8": "Sound"
+   }
+  ],
   "maker": "Konami",
   "mux_columns": 2,
   "pins": {},
@@ -2143,6 +3023,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -2162,6 +3052,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Nauchpribor)",
   "mux_columns": 3,
   "pins": {},
@@ -2181,6 +3081,12 @@
   ],
   "cpu": "sm530",
   "fixed_column": null,
+  "labels": [
+   {
+    "2": "mode",
+    "4": "set"
+   }
+  ],
   "maker": "Nelsonic",
   "mux_columns": 1,
   "pins": {},
@@ -2200,6 +3106,12 @@
   ],
   "cpu": "sm530",
   "fixed_column": null,
+  "labels": [
+   {
+    "2": "mode",
+    "4": "set"
+   }
+  ],
   "maker": "Nelsonic",
   "mux_columns": 1,
   "pins": {},
@@ -2215,6 +3127,12 @@
   ],
   "cpu": "sm530",
   "fixed_column": null,
+  "labels": [
+   {
+    "2": "laser",
+    "4": "bomb"
+   }
+  ],
   "maker": "Nelsonic",
   "mux_columns": 1,
   "pins": {},
@@ -2251,6 +3169,44 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "2": "Calc. / Clear",
+    "4": "="
+   },
+   {
+    "1": "Game",
+    "2": "Count",
+    "4": "Quiz"
+   },
+   {
+    "1": "Choose +",
+    "2": "Choose -"
+   },
+   {
+    "1": "1",
+    "2": "0",
+    "4": "Left",
+    "8": "Right"
+   },
+   {
+    "1": "5",
+    "2": "4",
+    "4": "3",
+    "8": "2"
+   },
+   {
+    "1": "9",
+    "2": "8",
+    "4": "7",
+    "8": "6"
+   },
+   {
+    "1": "+",
+    "2": "-"
+   }
+  ],
   "maker": "VTech",
   "mux_columns": 8,
   "pins": {},
@@ -2275,6 +3231,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -2299,6 +3265,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -2323,6 +3299,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -2357,6 +3343,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Take"
+   },
+   {
+    "1": "Throw",
+    "2": "Select"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2400,6 +3404,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Punch Right"
+   },
+   {
+    "1": "Kick/Attack",
+    "2": "Punch Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2444,6 +3466,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Thruster Left"
+   },
+   {},
+   {},
+   {
+    "2": "Parachute"
+   },
+   {
+    "1": "Thruster Right",
+    "2": "Capture"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2472,6 +3514,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {
@@ -2516,6 +3568,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Grappling Gun"
+   },
+   {},
+   {},
+   {
+    "2": "Help"
+   },
+   {
+    "1": "Batarang",
+    "2": "Thruster"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2555,6 +3627,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Pick",
+    "2": "Attack"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -2592,6 +3679,25 @@
   ],
   "cpu": "sm511",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "Fast"
+   },
+   {
+    "2": "Throw/Attack"
+   },
+   {},
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2635,6 +3741,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Attack Right"
+   },
+   {
+    "1": "Select",
+    "2": "Attack Left"
+   },
+   {
+    "1": "Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2675,6 +3799,25 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {
+    "4": "Repair"
+   },
+   {},
+   {
+    "2": "Brake"
+   },
+   {
+    "1": "Accelerate",
+    "2": "Rescue"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -2715,6 +3858,25 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "Sway"
+   },
+   {
+    "1": "Punch/Pick",
+    "2": "Kick"
+   },
+   {
+    "1": "Status"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -2758,6 +3920,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "Down"
+   },
+   {
+    "2": "Kick Right"
+   },
+   {
+    "1": "Punch",
+    "2": "Kick Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2801,6 +3985,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "P1 Down/Pick"
+   },
+   {
+    "2": "Punch"
+   },
+   {
+    "1": "Throw",
+    "2": "Kick"
+   },
+   {
+    "1": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2845,6 +4051,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Slingshot Left"
+   },
+   {},
+   {
+    "2": "Brake"
+   },
+   {
+    "2": "Pick Left"
+   },
+   {
+    "1": "Slingshot Right",
+    "2": "Pick Right"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -2885,6 +4113,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {
+    "2": "Crash",
+    "4": "Brake"
+   },
+   {},
+   {
+    "1": "Accelerate",
+    "2": "Pick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -2925,6 +4171,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 7,
+  "labels": [
+   {},
+   {
+    "4": "Punch/Brake"
+   },
+   {},
+   {
+    "2": "Run"
+   },
+   {
+    "2": "Tie"
+   },
+   {
+    "1": "Pick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 7,
   "pins": {
@@ -2965,6 +4233,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Jump",
+    "2": "Attack/Pick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3005,6 +4288,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Jump",
+    "2": "Attack/Pick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3043,6 +4341,23 @@
   ],
   "cpu": "sm511",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Punch/Claw"
+   },
+   {
+    "1": "Call"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3087,6 +4402,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Pick"
+   },
+   {},
+   {},
+   {
+    "2": "Bomb"
+   },
+   {
+    "1": "Attack",
+    "2": "Key"
+   },
+   {},
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3131,6 +4464,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Kick"
+   },
+   {},
+   {},
+   {
+    "2": "Q"
+   },
+   {
+    "1": "Punch",
+    "2": "Fire"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3174,6 +4527,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Magic"
+   },
+   {
+    "1": "Attack Left",
+    "2": "Attack Right"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3217,6 +4588,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Trap Right"
+   },
+   {
+    "1": "Climb",
+    "2": "Trap Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3260,6 +4649,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Trap/Flash Right"
+   },
+   {
+    "1": "Climb/Pick",
+    "2": "Trap/Flash Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3303,6 +4710,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Sword Up"
+   },
+   {},
+   {
+    "2": "Sword Down/Dodge"
+   },
+   {
+    "2": "Swing Right"
+   },
+   {
+    "1": "Attack/Pick",
+    "2": "Swing Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3346,6 +4775,42 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "0",
+    "2": "1",
+    "4": "2",
+    "8": "3"
+   },
+   {
+    "1": "4",
+    "2": "5",
+    "4": "6",
+    "8": "7"
+   },
+   {
+    "1": "8",
+    "2": "9",
+    "4": ".",
+    "8": "="
+   },
+   {
+    "1": "+",
+    "2": "-"
+   },
+   {
+    "1": "ALM",
+    "2": "%",
+    "4": "C"
+   },
+   {},
+   {
+    "8": "F"
+   },
+   {
+    "1": "Mode"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 8,
   "pins": {},
@@ -3377,6 +4842,25 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {
+    "1": "Shield",
+    "4": "Fire"
+   },
+   {},
+   {
+    "2": "Alert"
+   },
+   {
+    "2": "Velocity"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3421,6 +4905,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Kick"
+   },
+   {},
+   {},
+   {
+    "2": "Pick/Call"
+   },
+   {
+    "1": "Punch",
+    "2": "Fire"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3461,6 +4965,25 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {
+    "1": "Jump/Climb",
+    "4": "Swing/Power"
+   },
+   {},
+   {
+    "2": "Forward"
+   },
+   {
+    "2": "Call"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3504,6 +5027,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Fire-Ball"
+   },
+   {
+    "2": "Boomerang",
+    "4": "Shield"
+   },
+   {
+    "4": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3548,6 +5089,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Kick"
+   },
+   {},
+   {},
+   {
+    "2": "Pick/Rescue"
+   },
+   {
+    "1": "Punch Forward",
+    "2": "Punch Back"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3592,6 +5153,32 @@
   ],
   "cpu": "sm511",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Leg Footwork Left",
+    "4": "Arm Up"
+   },
+   {
+    "1": "Leg Footwork Right",
+    "2": "Leg Leaps Up/Jump"
+   },
+   {
+    "2": "Leg Leaps Down",
+    "4": "Arm Splits Right"
+   },
+   {
+    "4": "Arm Splits Left"
+   },
+   {
+    "4": "Arm Down"
+   },
+   {
+    "4": "Mode"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3632,6 +5219,23 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {
+    "4": "Pick"
+   },
+   {},
+   {
+    "1": "Attack",
+    "2": "Weapon"
+   },
+   {
+    "1": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3670,6 +5274,23 @@
   ],
   "cpu": "sm511",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Pick"
+   },
+   {
+    "1": "Call"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3714,6 +5335,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Punch High"
+   },
+   {},
+   {},
+   {
+    "2": "Kick High"
+   },
+   {
+    "1": "Punch Low",
+    "2": "Kick Low"
+   },
+   {
+    "1": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3753,6 +5394,22 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {},
+   {
+    "1": "Action"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3793,6 +5450,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Attack",
+    "2": "Pick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -3837,6 +5509,30 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Left Attack High"
+   },
+   {
+    "1": "Right Attack Low",
+    "2": "Right Attack High"
+   },
+   {
+    "2": "Pick On Right"
+   },
+   {
+    "4": "Left Attack Low"
+   },
+   {
+    "4": "Pick On Left"
+   },
+   {
+    "4": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3867,6 +5563,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 2,
   "pins": {},
@@ -3889,6 +5594,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 2,
   "pins": {},
@@ -3922,6 +5636,22 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Pick"
+   },
+   {},
+   {},
+   {},
+   {
+    "1": "Attack",
+    "2": "Key"
+   },
+   {},
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -3965,6 +5695,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {
+    "4": "Rescue"
+   },
+   {
+    "2": "P1 Down/Pick"
+   },
+   {
+    "2": "Shoot Right"
+   },
+   {
+    "1": "Shoot Up",
+    "2": "Shoot Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4008,6 +5760,30 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Jump/Fly"
+   },
+   {
+    "4": "Rescue"
+   },
+   {
+    "2": "P1 Down/Pick"
+   },
+   {
+    "2": "Shoot Right"
+   },
+   {
+    "1": "Shoot Up",
+    "2": "Shoot Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4050,6 +5826,29 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "P1 Up/Rocket Pack"
+   },
+   {
+    "4": "Rescue"
+   },
+   {
+    "2": "P1 Down/Pick"
+   },
+   {
+    "2": "Fire Right"
+   },
+   {
+    "1": "Fire Up"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4083,6 +5882,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 3,
   "pins": {},
@@ -4117,6 +5926,42 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "0",
+    "2": "1",
+    "4": "2",
+    "8": "3"
+   },
+   {
+    "1": "4",
+    "2": "5",
+    "4": "6",
+    "8": "7"
+   },
+   {
+    "1": "8",
+    "2": "9",
+    "4": ".",
+    "8": "="
+   },
+   {
+    "1": "+",
+    "2": "-"
+   },
+   {
+    "1": "ALM",
+    "2": "%",
+    "4": "C"
+   },
+   {},
+   {
+    "8": "F"
+   },
+   {
+    "1": "Mode"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 8,
   "pins": {},
@@ -4151,6 +5996,42 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "0",
+    "2": "1",
+    "4": "2",
+    "8": "3"
+   },
+   {
+    "1": "4",
+    "2": "5",
+    "4": "6",
+    "8": "7"
+   },
+   {
+    "1": "8",
+    "2": "9",
+    "4": ".",
+    "8": "="
+   },
+   {
+    "1": "+",
+    "2": "-"
+   },
+   {
+    "1": "ALM",
+    "2": "%",
+    "8": "C"
+   },
+   {
+    "4": "Fire"
+   },
+   {},
+   {
+    "1": "Mode"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 8,
   "pins": {},
@@ -4170,6 +6051,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 3,
   "pins": {
@@ -4198,6 +6089,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 3,
   "pins": {
@@ -4228,6 +6129,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Alarm",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Time"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 2,
   "pins": {},
@@ -4249,6 +6159,15 @@
   ],
   "cpu": "sm510",
   "fixed_column": null,
+  "labels": [
+   {},
+   {
+    "1": "Alarm",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Time"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 2,
   "pins": {},
@@ -4276,6 +6195,19 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Min"
+   },
+   {
+    "1": "Alarm",
+    "2": "Game A",
+    "4": "Game B",
+    "8": "Time"
+   }
+  ],
   "maker": "Tronica",
   "mux_columns": 4,
   "pins": {},
@@ -4311,6 +6243,29 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "1": "Kick Left",
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "P1 Down/Pick"
+   },
+   {
+    "2": "Special Technique"
+   },
+   {
+    "1": "Kick Right",
+    "2": "Punch"
+   },
+   {
+    "1": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4354,6 +6309,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Punch Right"
+   },
+   {
+    "1": "Kick",
+    "2": "Punch Left"
+   },
+   {
+    "1": "Select Planet"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4397,6 +6370,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Jump"
+   },
+   {},
+   {
+    "2": "Down"
+   },
+   {
+    "2": "Kick Right"
+   },
+   {
+    "1": "Punch/Special Move",
+    "2": "Kick Left"
+   },
+   {
+    "1": "Game"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4440,6 +6435,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Punch"
+   },
+   {
+    "1": "Shadow",
+    "2": "Kick"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4479,6 +6492,20 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Attack"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4522,6 +6549,28 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "Whip Up"
+   },
+   {},
+   {
+    "2": "Whip Down"
+   },
+   {
+    "2": "Sword"
+   },
+   {
+    "1": "Jump Up",
+    "2": "Jump Forward"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4562,6 +6611,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Shoot/Block",
+    "2": "Tune/Steal"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4605,6 +6669,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Attack Right"
+   },
+   {
+    "1": "Pick/Call",
+    "2": "Attack Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4644,6 +6726,24 @@
   ],
   "cpu": "sm511",
   "fixed_column": 5,
+  "labels": [
+   {
+    "4": "Jump Up"
+   },
+   {},
+   {
+    "2": "Down"
+   },
+   {
+    "1": "Super Sonic Spin"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4683,6 +6783,20 @@
   ],
   "cpu": "sm511",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Action"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4726,6 +6840,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Shoot Right/Kick"
+   },
+   {
+    "1": "Shoot Up/Punch",
+    "2": "Shoot Left/Rescue"
+   },
+   {
+    "1": "Status"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4766,6 +6898,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Attack/Pick",
+    "2": "Weapon"
+   },
+   {
+    "1": "Select"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4802,6 +6949,21 @@
   ],
   "cpu": "sm511",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {},
+   {
+    "1": "Call"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4842,6 +7004,21 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Punch/Fire",
+    "2": "Throw"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -4885,6 +7062,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "1": "Attack"
+   },
+   {
+    "1": "Call",
+    "2": "Transform"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4926,6 +7121,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Gun Right"
+   },
+   {
+    "1": "Fire",
+    "2": "Gun Left"
+   },
+   {
+    "1": "Max Score"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -4969,6 +7182,26 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {
+    "4": "High Five"
+   },
+   {},
+   {},
+   {
+    "2": "Hockey Right"
+   },
+   {
+    "1": "Shoot/Cassandra",
+    "2": "Hockey Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -5012,6 +7245,24 @@
   ],
   "cpu": "sm510",
   "fixed_column": 6,
+  "labels": [
+   {},
+   {},
+   {},
+   {
+    "2": "Attack/Pick Right"
+   },
+   {
+    "1": "Punch/Claws",
+    "2": "Attack/Pick Left"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 6,
   "pins": {
@@ -5052,6 +7303,23 @@
   ],
   "cpu": "sm510",
   "fixed_column": 5,
+  "labels": [
+   {},
+   {},
+   {
+    "2": "Pick"
+   },
+   {
+    "1": "Jump",
+    "2": "Move"
+   },
+   {
+    "1": "Pause"
+   },
+   {
+    "8": "Power On/Start"
+   }
+  ],
   "maker": "Tiger Electronics",
   "mux_columns": 5,
   "pins": {
@@ -5094,6 +7362,37 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Evaluate Entry",
+    "4": "Start Exam"
+   },
+   {
+    "1": "Evaluate Division Entries",
+    "2": "Mode"
+   },
+   {
+    "2": "Clear entry / Correction",
+    "4": "5"
+   },
+   {
+    "1": "6",
+    "2": "+"
+   },
+   {
+    "1": "7",
+    "2": "-",
+    "4": "2"
+   },
+   {
+    "1": "8",
+    "4": "3"
+   },
+   {
+    "1": "9",
+    "4": "4"
+   }
+  ],
   "maker": "Elektronika",
   "mux_columns": 7,
   "pins": {},
@@ -5117,6 +7416,15 @@
   ],
   "cpu": "sm511",
   "fixed_column": null,
+  "labels": [
+   {
+    "1": "Game",
+    "2": "Start",
+    "4": "Time",
+    "8": "Alarm"
+   },
+   {}
+  ],
   "maker": "Elektronika",
   "mux_columns": 2,
   "pins": {},
@@ -5139,6 +7447,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
@@ -5163,6 +7481,16 @@
   ],
   "cpu": "sm5a",
   "fixed_column": null,
+  "labels": [
+   {},
+   {},
+   {
+    "1": "Time",
+    "2": "Game B",
+    "4": "Game A",
+    "8": "Alarm"
+   }
+  ],
   "maker": "bootleg (Elektronika)",
   "mux_columns": 3,
   "pins": {},
