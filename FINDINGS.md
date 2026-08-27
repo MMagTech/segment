@@ -557,3 +557,28 @@ LCD segment decode is exact - poking lcd_ram_a[3]=0b0101 lights 0.3.0 and
 timing, the bs segment, and the ROM image layout (assumed a flat 0x1000
 image; confirm against the first real romset). SM511/SM512 melody is not
 implemented; those add an internal melody ROM on top of this.
+
+## SM510 core verified (2026-08-26, late) - ROMs arrived
+
+The user's MAME 0.260 non-merged set turned up on their NAS, so the
+SM510 core got its real test. Verified against MAME 0.289 on gnw_stennis
+(Snoopy Tennis, a plain SM510 game): lockstep PC/ACC/BL/BM/C trace
+matches, rendered LCD identical to MAME's snapshot.
+
+Verifying found one real bug. op_tl was dispatched only for op&0xfc ==
+0x70, but MAME dispatches TL for 0x70, 0x74 AND 0x78 (the code comment
+even said 70/74/78). A `TL $54C` at 0DE3 fell through and ran as a no-op,
+splitting the trace at instruction 413. After the fix the trace matches
+for thousands of instructions with only the divider-phase jitter the
+SM5A core also has: a few TF1/TF4/TIS tests per 26k land on a divider-bit
+transition a tick off MAME's timer phase. It is bounded (not growing),
+the game's timing loops absorb it, and the display is unaffected - the
+same "fraction of a cycle" imprecision noted for the SM5A.
+
+The SM510 ROM (sp-30) is a flat 0x1000 image, confirming the loader
+assumption. 162 of the 175 driver romsets are now local under roms/mame/
+(the 13 absent were added to MAME after 0.260). Remaining: SM511/SM512
+melody (not implemented; needed for the Tiger games that have music), and
+the S-strobe K-input muxing for building SM510 games into .mgw (the CPU
+exposes write_s/read_k, but which S bit gates which K column is per-game
+driver logic to replicate in the game.lua template).

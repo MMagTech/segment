@@ -76,7 +76,7 @@ def encode_rle(w, h, rgba, bgcolor=None):
 
 # ---------------------------------------------------------------- panel
 
-def build_panel(segdir, layout):
+def build_panel(segdir, layout, title='LCD'):
     """Render the panel with rsvg: silver body, the LCD backdrop inset,
     round action buttons, service pills. Returns (w, h, rgba)."""
     import base64
@@ -85,6 +85,7 @@ def build_panel(segdir, layout):
     W, H = layout['panel_w'], layout['panel_h']
     lx, ly = layout['lcd_x'], layout['lcd_y']
     lw, lh = layout['lcd_w'], layout['lcd_h']
+    title_upper = title.upper()[:18]
     parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
   viewBox="0 0 {W} {H}">
   <defs>
@@ -99,7 +100,7 @@ def build_panel(segdir, layout):
     xlink:href="data:image/png;base64,{b64}"
     xmlns:xlink="http://www.w3.org/1999/xlink"/>
   <text x="{lx+10}" y="30" font-family="Helvetica, Arial" font-size="22"
-    font-weight="bold" fill="#5c5850" letter-spacing="6">BALL</text>''']
+    font-weight="bold" fill="#5c5850" letter-spacing="4">{title_upper}</text>''']
     for b in layout['buttons']:
         x, y, w, h = b['rect']
         cx, cy = x + w // 2, y + h // 2
@@ -325,10 +326,23 @@ MAIN_LUA = "return system.loadunit 'game'\n"
 
 # ---------------------------------------------------------------- build
 
+# SM510 games mux K inputs through the S strobe. Per game, map a logical
+# action to (column_index, k_bit); read_k ORs the pressed bits of columns
+# S has selected. From each game's INPUT_PORTS in the MAME driver.
+INPUT_MAPS_SM510 = {
+    'gnw_stennis': {
+        'down': (0, 0x1), 'up': (0, 0x2), 'hit': (0, 0x8),
+        'time': (1, 0x1), 'gameb': (1, 0x2), 'gamea': (1, 0x4),
+        'alarm': (1, 0x8),
+    },
+}
+
+
 def main():
     rom_path, segdir, out_path, title = sys.argv[1:5]
     artwork_zip = sys.argv[5] if len(sys.argv) > 5 else None
     shortname = sys.argv[6] if len(sys.argv) > 6 else None
+    chip = sys.argv[7] if len(sys.argv) > 7 else 'sm5a'
     manifest = json.load(open(os.path.join(segdir, 'segments.json')))
     lw, lh = manifest.pop('_canvas')
 
@@ -367,7 +381,7 @@ def main():
     files['sq2731.pcm'] = square_pcm(2731)
 
     if not layout['artwork']:
-        pw, ph, rgba = build_panel(segdir, layout)
+        pw, ph, rgba = build_panel(segdir, layout, title)
     else:
         # The unit's screen window is dark in the scan; paint it with the
         # classic LCD grey-green so the dark segments read against it, the
@@ -409,13 +423,37 @@ def main():
             tapzones.append('  { %d, %d, %d, %d, %s },' %
                             (r[0]-pad, r[1]-pad, r[2]+2*pad, r[3]+2*pad, actlua))
 
-    files['game.lua'] = GAME_LUA.format(
-        title=title, lcd_x=layout['lcd_x'], lcd_y=layout['lcd_y'],
-        segdefs='\n'.join(segdefs), tapzones='\n'.join(tapzones)).encode()
-
     here = os.path.dirname(os.path.abspath(__file__))
     root = os.path.dirname(os.path.dirname(here))
-    files['sm5a.lua'] = open(os.path.join(root, 'sm510/sm5a.lua'), 'rb').read()
+
+    if chip == 'sm510':
+        # SM510: segdefs need only (tag, x, y, rle); segments are looked up
+        # by their x.y.z tag in cpu:segments(). Rebuild from the manifest.
+        sdefs = []
+        for name in sorted(manifest):
+            m = manifest[name]
+            fn = m['file'].replace('.png', '.rle')
+            sdefs.append("  { '%s', %d, %d, '%s' }," % (name, m['x'], m['y'], fn))
+        imap = INPUT_MAPS_SM510.get(shortname, {})
+        ncols = max((c for c, _ in imap.values()), default=0) + 1
+        buttonmap = '\n'.join("  ['%s'] = { %d, %d }," % (a, c, b)
+                              for a, (c, b) in imap.items())
+        tmpl = open(os.path.join(here, 'game_sm510.lua.tmpl')).read()
+        game = (tmpl.replace('@TITLE@', title)
+                    .replace('@COLS_INIT@', ', '.join(['0'] * ncols))
+                    .replace('@LCD_X@', str(layout['lcd_x']))
+                    .replace('@LCD_Y@', str(layout['lcd_y']))
+                    .replace('@SEGDEFS@', '\n'.join(sdefs))
+                    .replace('@BUTTONMAP@', buttonmap)
+                    .replace('@TAPZONES@', '\n'.join(tapzones)))
+        files['game.lua'] = game.encode()
+        files['sm510.lua'] = open(os.path.join(root, 'sm510/sm510.lua'), 'rb').read()
+    else:
+        files['game.lua'] = GAME_LUA.format(
+            title=title, lcd_x=layout['lcd_x'], lcd_y=layout['lcd_y'],
+            segdefs='\n'.join(segdefs), tapzones='\n'.join(tapzones)).encode()
+        files['sm5a.lua'] = open(os.path.join(root, 'sm510/sm5a.lua'), 'rb').read()
+
     files['rom.bin'] = open(rom_path, 'rb').read()
 
     # main.bs via the repo's own encoder
