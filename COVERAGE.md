@@ -6,12 +6,12 @@ regenerate after any batch or asset change.
 | | count |
 |---|---|
 | games in the MAME driver | 169 |
-| built and installed | 152 |
+| built and installed | 155 |
 | of which drawn-panel (no artwork pack yet) | 11 |
 | blocked: no ROM dump locally | 11 |
 | blocked: chip not ported (sm530) | 3 |
 | have ROM, awaiting artwork (playable via drawn panel) | 3 |
-| have ROM + artwork, not yet built | 3 |
+| have ROM + artwork, not yet built | 0 |
 
 ## Have ROM, no artwork pack (3)
 
@@ -73,14 +73,4 @@ Next core ports, same recipe as the three verified ones.
 | nsmb3 | sm530 | Super Mario Bros. 3 (Nelsonic) |
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
-
-## Assets complete but unbuilt (3)
-
-Should be empty; anything here means the batch skipped it.
-
-| romset | chip | title |
-|---|---|---|
-| tsonic | sm511 | Sonic The Hedgehog (Tiger Electronics, Tiger) |
-| tsonic2 | sm511 | Sonic The Hedgehog 2 (Tiger Electronics, Tiger) |
-| tsuperman | sm511 | Superman (Tiger Electronics, Tiger) |
 
