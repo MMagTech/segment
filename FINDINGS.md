@@ -941,3 +941,28 @@ the ~85 games whose packs ship no press images, the three input
 mysteries, the five budget-shrunk games) and reach (the 14 rom-no-art
 games buildable with drawn panels, the 8 art-no-rom games waiting on
 dumps, the 8 games on unported chips like Konami's SM530 trio).
+
+## Drawn panels, redesigned and shipped (2026-08-27, late night)
+
+The no-artwork fallback was rebuilt from the ground up after its first
+public screenshot: the old panel hardcoded Ball's five buttons at
+Ball's proportions, clipping labels on any other screen shape and
+giving every game LEFT/RIGHT whether it had them or not. panel_layout()
+now derives the controls from the game's own extracted wiring, so
+Nu, pogodi! gets its real paired UP/DOWN buttons per side, Space Rescue
+gets its single LEFT/RIGHT pair, and the pill row sits labelled and
+centred under the LCD at any aspect. Every drawn control doubles as a
+tap zone.
+
+Nine of the fourteen no-artwork games are built and installed:
+gnw_helmeto, gnw_judgeo, gnw_mariocmta, nummunch, nupogodi, rkosmosa,
+tigarden, trshutvoy, trsrescue. Six respond with taps byte-identical to
+the pad. The three that boot but ignore the sweep (nummunch, tigarden,
+trshutvoy) are keypad devices: their INPUT_PORTS carry IPT_KEYPAD
+banks, which the extractor records as a 'keypad' action nothing maps
+yet. Numeric keypads need their own tap-zone treatment (a drawn keypad
+grid) and are a follow-on item. Files are tiny: 40-100KB against the
+1-2MB artwork editions.
+
+Still parked: the three Nelsonic watches (SM530, unported chip) and
+kosmicmt/vespovar (machine config not yet classified).
