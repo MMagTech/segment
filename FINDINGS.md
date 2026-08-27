@@ -966,3 +966,42 @@ grid) and are a follow-on item. Files are tiny: 40-100KB against the
 
 Still parked: the three Nelsonic watches (SM530, unported chip) and
 kosmicmt/vespovar (machine config not yet classified).
+
+## Converter, coverage, SM530, and the repro draft (2026-08-27, deep night)
+
+The pipeline is now one command (tools/gw/convert.py): romset in,
+verified .mgw out, narrating each step and ending in a headless
+boot-and-respond self-test that refuses to emit a non-responding game.
+It reproduces the batch builds and cleanly rejects unknown romsets and
+unported chips. tools/gw/coverage.py generates COVERAGE.md, the standing
+backlog: what is built, and for the rest, whether the blocker is
+artwork, a ROM dump, or a chip port. The drawn-panel fallback was
+rebuilt to derive its control layout from each game's own wiring, so
+every no-artwork game is playable and correctly laid out today rather
+than clipped.
+
+extract_inputs.py now classifies every game in the driver (the last
+holdouts were a spaced ampersand in the machine-config signature, the
+tiger2bit/tiger1bit melody variants, and games whose config just
+delegates to another via a bare `foo(config)` call).
+
+sm530.lua ports MAME's sm530.cpp for the Nelsonic/Konami watch chip:
+the fully rearranged opcode map, the 8-bit K read as two nibbles
+(KTA/KETA), the four-flag gamma (10s/1s/0.5s/0.1s) tested per-bit by
+TG, the 1s and 1/100s hardware counters, the display-enable latch, the
+F output, and the SM511 melody controller at a 0xff step mask. Written
+to the same recipe as the three verified cores but NOT yet
+lockstep-verified: the three SM530 romsets' vector SVGs postdate the
+local MAME 0.260 set, so `mame nstarfox` cannot render headless here to
+trace against. Marked unverified until a newer romset or a hand-built
+oracle is available.
+
+Upstream repro, drafted not verified: upstream/make_overflow_repro.py
+builds a synthetic .mgw (no ROM, no artwork, just N opaque sprites over
+a plain canvas) intended to overrun RL_BG_SAVE_SIZE for the bug report.
+It does not crash under the headless bench, which appears not to drive
+rl_sprites_blit the way RetroArch's compositor does (the games that
+crash do so in the real frontend). The generator is kept for the filing
+session, where it needs tuning against a live RetroArch build; the bug
+itself is real and reproduced by the actual Tiger/dual-screen games,
+which is what the pixel-budget guard exists for.
