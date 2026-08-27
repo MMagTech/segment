@@ -6,26 +6,24 @@ regenerate after any batch or asset change.
 | | count |
 |---|---|
 | games in the MAME driver | 169 |
-| built and installed | 145 |
-| of which drawn-panel (no artwork pack yet) | 9 |
+| built and installed | 152 |
+| of which drawn-panel (no artwork pack yet) | 11 |
 | blocked: no ROM dump locally | 11 |
 | blocked: chip not ported (sm530) | 3 |
-| have ROM, awaiting artwork (playable via drawn panel) | 5 |
-| have ROM + artwork, not yet built | 8 |
+| have ROM, awaiting artwork (playable via drawn panel) | 3 |
+| have ROM + artwork, not yet built | 3 |
 
-## Have ROM, no artwork pack (5)
+## Have ROM, no artwork pack (3)
 
 Buildable today with the generated drawn panel; each rebuilds into its authentic shell in seconds once a pack exists.
 
 | romset | chip | title |
 |---|---|---|
-| kosmicmt | sm5a | Kosmicheskiy most (Elektronika) |
 | nsmb3 | sm530 | Super Mario Bros. 3 (Nelsonic) |
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
-| vespovar | sm5a | Vesyolyy povar (Elektronika) |
 
-## Built with the drawn panel, awaiting artwork (9)
+## Built with the drawn panel, awaiting artwork (11)
 
 Playable now; watching for artwork packs to upgrade them.
 
@@ -34,12 +32,14 @@ Playable now; watching for artwork packs to upgrade them.
 | gnw_helmeto | sm5a | Helmet (Nintendo, version CN-07) |
 | gnw_judgeo | sm5a | Judge (Nintendo, green version) |
 | gnw_mariocmta | sm511 | Mario's Cement Factory (Nintendo, Table Top, version CM-72A) |
+| kosmicmt | sm5a | Kosmicheskiy most (Elektronika) |
 | nummunch | sm511 | Electronic Number Muncher (VTech) |
 | nupogodi | sm5a | Nu, pogodi! (Elektronika) |
 | rkosmosa | sm5a | Razvedchiki kosmosa (Elektronika) |
 | tigarden | sm510 | Thief in Garden (Tronica) |
 | trshutvoy | sm510 | Shuttle Voyage (Tronica) |
 | trsrescue | sm510 | Space Rescue (Tronica) |
+| vespovar | sm5a | Vesyolyy povar (Elektronika) |
 
 ## Artwork exists, no ROM dump locally (8)
 
@@ -74,17 +74,12 @@ Next core ports, same recipe as the three verified ones.
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
 
-## Assets complete but unbuilt (8)
+## Assets complete but unbuilt (3)
 
 Should be empty; anything here means the batch skipped it.
 
 | romset | chip | title |
 |---|---|---|
-| kst25 | sm511 | Star Trek - 25th Anniversary (Konami, handheld) |
-| ktopgun2 | sm511 | Top Gun - Second Mission (Konami, handheld) |
-| tbatmana | sm511 | Batman - The Animated Series (Tiger Electronics, Tiger) |
-| tgargnf | sm511 | Gargoyles - Night Flight (Tiger Electronics, Tiger) |
-| tmchammer | sm511 | MC Hammer - U Can't Touch This (Tiger Electronics, Tiger) |
 | tsonic | sm511 | Sonic The Hedgehog (Tiger Electronics, Tiger) |
 | tsonic2 | sm511 | Sonic The Hedgehog 2 (Tiger Electronics, Tiger) |
 | tsuperman | sm511 | Superman (Tiger Electronics, Tiger) |

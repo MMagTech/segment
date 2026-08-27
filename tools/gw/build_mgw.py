@@ -523,11 +523,11 @@ def main():
         if wiring is None:
             raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
         tmpl = open(os.path.join(here, 'game_sm511.lua.tmpl')).read()
+        corefile = 'sm510/sm530.lua' if chip == 'sm530' else 'sm510/sm511.lua'
+        unitname = 'sm530' if chip == 'sm530' else 'sm511'
         tmpl = tmpl.replace('@CHIP@', chip).replace('@NOTES@', notelua).replace("loadunit 'sm511'", "loadunit '%s'" % unitname).replace('sm511.new', unitname + '.new')
         files['game.lua'] = render_game(tmpl, title, wiring, layout,
                                         sdefs, tapzones).encode()
-        corefile = 'sm510/sm530.lua' if chip == 'sm530' else 'sm510/sm511.lua'
-        unitname = 'sm530' if chip == 'sm530' else 'sm511'
         files[unitname + '.lua'] = open(os.path.join(root, corefile), 'rb').read()
         files['melody.bin'] = open(os.path.join(os.path.dirname(rom_path),
                                                 'melody.bin'), 'rb').read()

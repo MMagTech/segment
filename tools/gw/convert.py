@@ -134,8 +134,9 @@ def main():
                                 for _, r in sorted(panel.lcds.items()))))
                 widths = [panel.lcds.get(i, panel.lcd)[2] for i in range(len(svgs))]
             else:
+                w0 = max_w or 900
                 say('no artwork pack: using the generated shell')
-                widths = [900] * len(svgs)
+                widths = [w0] * len(svgs)
 
             segdirs = []
             for i, sv in enumerate(svgs):
