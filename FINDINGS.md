@@ -1022,7 +1022,33 @@ with no retropad equivalent. It is not a mystery either, just the same
 keypad-device case as nummunch/tigarden/trshutvoy, which need a drawn
 keypad grid to be usable.
 
-## Automatic tap zones without press images: not reliably solvable (2026-08-27)
+## Tap zones without press images: hand-placed, harness-verified (2026-08-27)
+
+Correction to an earlier, too-pessimistic entry (below). Automatic pixel
+DETECTION of buttons is unreliable, but that was never the whole job, and
+"can't auto-detect" is not "can't do". The buttons are placeable by hand
+and, crucially, the placement is VERIFIABLE:
+
+- MAME's driver gives each button's printed name (PORT_NAME), now
+  extracted into inputs.json's `labels`.
+- The unit artwork has those same words printed on the buttons, legible
+  by eye (or OCR).
+- Reading the position off the rendered unit, expressing the zone as a
+  fraction of the panel (so it survives the pixel-budget rescale), and
+  labelling it with the driver's action gives a tap zone.
+- The bench then PROVES it: a tap at the zone centre reproduces that
+  action's pad press byte-for-byte. The functional check works for any
+  zone regardless of how it was placed; only visual placement needs eyes.
+
+Demonstrated on tbatman (Tiger Batman): seven zones (3-way d-pad, PICK,
+ATTACK, MAX SCORE, START) read off the unit in one pass, all seven
+verified tap==pad. tools/gw/tapzones.json holds the fractions per game;
+build_mgw uses them when a pack has no press images. This is per-game
+hand work (look, place, verify, a few minutes each) rather than one
+algorithm, but it is entirely doable for the Tiger/Konami/dual-screen
+catalogue.
+
+### (superseded) Automatic tap zones without press images
 
 The ~100 games whose artwork packs ship no pressed-state overlays cannot
 have their buttons located the clean way (composite-the-press-image).

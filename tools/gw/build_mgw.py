@@ -343,6 +343,16 @@ def artwork_tapzones(zip_path, panel, wiring):
     return zones
 
 
+# Hand-placed tap zones for packs that ship no press images, read off the
+# rendered unit by eye and expressed as fractions of the panel (fx, fy,
+# fw, fh, action) so they survive the pixel-budget rescale. Each entry is
+# verified with the bench: a tap at the zone centre reproduces the action
+# byte-for-byte. Grows per game; see tools/gw/tapzones.json.
+def load_manual_taps():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tapzones.json')
+    return json.load(open(path)) if os.path.exists(path) else {}
+
+
 # Hand-measured fallback, in the .lay's own view coordinates (x, y, w, h,
 # action) so they hold at any panel resolution. Only needed for packs
 # that ship no press images.
@@ -476,6 +486,11 @@ def main():
         zones = artwork_tapzones(artwork_zip, panel, wiring) if wiring else []
         if zones:
             print('%d tap zones from the pack\'s press images' % len(zones))
+        elif shortname in load_manual_taps():
+            man = load_manual_taps()[shortname]
+            zones = [(round(fx*pw), round(fy*ph), round(fw*pw), round(fh*ph), a)
+                     for fx, fy, fw, fh, a in man]
+            print('%d hand-placed tap zones' % len(zones))
         else:
             zones = [panel.to_panel_rect(b[:4]) + (b[4],)
                      for b in ARTWORK_BUTTONS.get(shortname, [])]
