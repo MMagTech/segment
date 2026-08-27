@@ -92,11 +92,13 @@ English and a foreign edition to choose between.
    with action names recoverable from element refs like `Hit-Flat`), and
    each game's INPUT_PORTS in the driver for the rest.
 
-4. **Multi-screen units.** 17 packs have two screens and trtreisl has
-   three (Donkey Kong, Zelda, Oil Panic, Mario Bros and friends).
-   `artwork.render()` already returns every screen rect in `Panel.lcds`
-   and build_mgw warns and packages only screen 0. Needs a game.lua
-   template that drives two segment sets.
+4. ~~Multi-screen units.~~ **Done for SM510, 2026-08-27: all nine
+   two-screen units build, boot and respond** (Donkey Kong, DK II,
+   Green House, Life Boat, Mario Bros., Mickey & Donald, Oil Panic,
+   Rain Shower, Squish). The remaining multi-screen games (gnw_zelda,
+   gnw_dkjrp and friends) are SM511/SM512 and wait on the melody core.
+   dkong2/mickdon rescaled small under the pixel budget; see the
+   upstream filing note.
 
 5. **SM511/SM512 melody core**: ~40 Tiger/Konami games have music.
 
@@ -126,3 +128,12 @@ English and a foreign edition to choose between.
 ## Separately: upstream
 - Issue #84 / PR #85 (compatinit pointer fix for the 59 existing games)
   is filed and awaiting maintainer response. Nothing to do until then.
+- TO FILE (decided 2026-08-27): the RL_BG_SAVE_SIZE overrun.
+  rl_image_blit writes past the fixed 384k-pixel save-under buffer with
+  no bounds check; slight overrun silently bakes sprites into the
+  framebuffer, large overrun is SIGBUS. File it as a memory-safety bug
+  with a SYNTHETIC repro .mgw (a plain Lua unit creating a few hundred
+  large solid sprites - no ROM, no artwork, freely attachable), the
+  offending line, and a two-line fix (bounds-check and clamp, or grow
+  the buffer). Motivation gets one sentence. Held until the dual-screen
+  work confirms whether more core limits belong in the same report.

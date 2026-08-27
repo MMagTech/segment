@@ -260,6 +260,8 @@ def render_game(tmpl, title, wiring, layout, segdefs, tapzones):
                 .replace('@B_IDLE@', str(idle['b']))
                 .replace('@LCD_X@', str(layout['lcd_x']))
                 .replace('@LCD_Y@', str(layout['lcd_y']))
+                .replace('@LCDS@', '\n'.join(
+                    '  { %d, %d },' % (r[0], r[1]) for r in layout['lcds']))
                 .replace('@SEGDEFS@', '\n'.join(segdefs))
                 .replace('@BUTTONMAP@', '\n'.join(btn))
                 .replace('@TAPZONES@', '\n'.join(tapzones))
@@ -282,12 +284,16 @@ SEG_PIXEL_BUDGET = int(384 * 1024 * 0.92)
 
 def main():
     rom_path, segdir, out_path, title = sys.argv[1:5]
+    segdirs = segdir.split(',')      # one per screen, top first
     artwork_zip = sys.argv[5] if len(sys.argv) > 5 else None
     shortname = sys.argv[6] if len(sys.argv) > 6 else None
     chip = sys.argv[7] if len(sys.argv) > 7 else 'sm5a'
     max_w = int(sys.argv[8]) if len(sys.argv) > 8 else None
-    manifest = json.load(open(os.path.join(segdir, 'segments.json')))
-    lw, lh = manifest.pop('_canvas')
+    manifests = []
+    for sd in segdirs:
+        m = json.load(open(os.path.join(sd, 'segments.json')))
+        manifests.append((sd, m, m.pop('_canvas')))
+    segdir, manifest, (lw, lh) = manifests[0][0], manifests[0][1], manifests[0][2]
 
     files = {}
 
@@ -295,9 +301,13 @@ def main():
         panel = load_artwork(artwork_zip,
                              max_panel=(max_w, max_w) if max_w else artwork.MAX_PANEL)
         pw, ph, rgba, lcd = panel.w, panel.h, panel.rgba, panel.lcd
+        if len(segdirs) > 1 and len(panel.lcds) < len(segdirs):
+            raise SystemExit('%d segment dirs but the artwork has %d screens'
+                             % (len(segdirs), len(panel.lcds)))
         layout = {'panel_w': pw, 'panel_h': ph,
                   'lcd_x': lcd[0], 'lcd_y': lcd[1], 'lcd_w': lcd[2], 'lcd_h': lcd[3],
                   'artwork': True,
+                  'lcds': [panel.lcds[i] for i in sorted(panel.lcds)],
                   'tapzones_px': []}
         wiring = load_inputs().get(shortname)
         zones = artwork_tapzones(artwork_zip, panel, wiring) if wiring else []
@@ -311,13 +321,14 @@ def main():
             else:
                 print('warning: no tap zones; %s is joypad-only' % shortname)
         layout['tapzones_px'] = zones
-        if len(panel.lcds) > 1:
-            print('warning: %s has %d screens; only screen 0 is packaged'
-                  % (os.path.basename(artwork_zip), len(panel.lcds)))
+        if len(panel.lcds) > len(segdirs):
+            print('warning: %s has %d screens but %d segment dirs'
+                  % (os.path.basename(artwork_zip), len(panel.lcds), len(segdirs)))
     else:
         layout = {
             'panel_w': max(480, lw), 'panel_h': lh + 190,
             'lcd_x': 0, 'lcd_y': 50, 'lcd_w': lw, 'lcd_h': lh, 'artwork': False,
+            'lcds': [(0, 50, lw, lh)],
             'buttons': [
                 {'label': 'LEFT',   'shape': 'round', 'rect': [36,  lh+80, 64, 64], 'act': 'left'},
                 {'label': 'RIGHT',  'shape': 'round', 'rect': [560, lh+80, 64, 64], 'act': 'right'},
@@ -348,22 +359,27 @@ def main():
     files['background.rle'] = encode_rle(layout['panel_w'], layout['panel_h'], rgba)
     print('panel %dx%d -> %d bytes rle' % (pw, ph, len(files['background.rle'])))
 
-    if abs(lw - layout['lcd_w']) > 2 or abs(lh - layout['lcd_h']) > 2:
-        print('warning: segments rendered %dx%d but the LCD window is %dx%d; '
-              're-run svg2segs.py at width %d'
-              % (lw, lh, layout['lcd_w'], layout['lcd_h'], layout['lcd_w']))
+    for i, (sd, m, (cw, ch)) in enumerate(manifests):
+        win = panel.lcds[i] if artwork_zip and i in getattr(panel, 'lcds', {}) \
+              else (0, 0, layout['lcd_w'], layout['lcd_h'])
+        if abs(cw - win[2]) > 2:
+            print('warning: screen %d segments rendered %dx%d but its window '
+                  'is %dx%d; re-run svg2segs.py at width %d'
+                  % (i, cw, ch, win[2], win[3], win[2]))
 
-    segdefs, total, used_px = [], 0, 0
-    for name in sorted(manifest):
-        m = manifest[name]
-        w, h, px = read_png(os.path.join(segdir, m['file']))
-        fn = m['file'].replace('.png', '.rle')
-        files[fn] = encode_rle(w, h, px)
-        total += len(files[fn])
-        used_px += struct.unpack('>I', files[fn][4:8])[0]
-        o, yy, hh = (int(t) for t in name.split('.'))
-        segdefs.append("  { '%s', %d, %d, '%s', %d, %d, %d }," %
-                       (name, m['x'], m['y'], fn, o, yy, hh))
+    segdefs, total, used_px, allsegs = [], 0, 0, []
+    for scr, (sd, mani, _c) in enumerate(manifests):
+        for name in sorted(mani):
+            m = mani[name]
+            w, h, px = read_png(os.path.join(sd, m['file']))
+            fn = 's%d_%s' % (scr, m['file'].replace('.png', '.rle'))
+            files[fn] = encode_rle(w, h, px)
+            total += len(files[fn])
+            used_px += struct.unpack('>I', files[fn][4:8])[0]
+            allsegs.append((scr, name, m, fn))
+            o, yy, hh = (int(t) for t in name.split('.'))
+            segdefs.append("  { '%s', %d, %d, '%s', %d, %d, %d, %d }," %
+                           (name, m['x'], m['y'], fn, o, yy, hh, scr + 1))
     print('%d segments -> %d bytes rle, %d px worst-case' %
           (len(segdefs), total, used_px))
     if used_px > SEG_PIXEL_BUDGET:
@@ -390,11 +406,8 @@ def main():
     if chip == 'sm510':
         # SM510: segdefs need only (tag, x, y, rle); segments are looked up
         # by their x.y.z tag in cpu:segments(). Rebuild from the manifest.
-        sdefs = []
-        for name in sorted(manifest):
-            m = manifest[name]
-            fn = m['file'].replace('.png', '.rle')
-            sdefs.append("  { '%s', %d, %d, '%s' }," % (name, m['x'], m['y'], fn))
+        sdefs = ["  { '%s', %d, %d, '%s', %d }," % (name, m['x'], m['y'], fn, scr + 1)
+                 for scr, name, m, fn in allsegs]
         wiring = load_inputs().get(shortname)
         if wiring is None:
             raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)

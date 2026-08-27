@@ -41,17 +41,21 @@ system.setbackground( bgimg.picture )
 bgimg.picture = nil
 bgimg.visible = false
 
-local LCD_X, LCD_Y = @LCD_X@, @LCD_Y@
+-- one origin per screen; single-screen units have one entry
+local LCDS = {
+@LCDS@
+}
 local segdefs = {
 @SEGDEFS@
 }
 local segimgs = {}
 for i = 1, #segdefs do
   local d = segdefs[ i ]
+  local o = LCDS[ d[ 5 ] ]
   local img = system.newimage()
   img.picture.data = system.loadbin( d[ 4 ] )
-  img.left = LCD_X + d[ 2 ]
-  img.top  = LCD_Y + d[ 3 ]
+  img.left = o[ 1 ] + d[ 2 ]
+  img.top  = o[ 2 ] + d[ 3 ]
   img.visible = false
   segimgs[ i ] = img
 end

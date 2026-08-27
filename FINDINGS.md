@@ -851,3 +851,32 @@ Separately, the Tiger games that did load ignored their start button:
 they wire it as IPT_START ("Power On/Start"), which the extractor
 didn't map, so nothing pressed it. IPT_START now maps to a 'start'
 action bound to the retropad's own start button.
+
+## Dual-screen units (2026-08-27, late)
+
+The nine two-screen SM510 units build and play: Donkey Kong, Donkey
+Kong II, Green House, Life Boat, Mario Bros., Mickey & Donald, Oil
+Panic, Rain Shower, Squish. All nine boot and respond in the sweep.
+Evidence: sm510/evidence/mgw_dkong_dual_playing.png, Donkey Kong
+mid-game on both screens.
+
+It cost very little, which is the payoff of the earlier generality:
+artwork.py already reported every screen's rectangle (Panel.lcds), and
+one chip drives both LCDs, so no core work at all. The changes are
+plumbing: build_mgw takes comma-separated segment dirs (one per screen,
+top or left first), segdefs carry a screen index, the game template
+places each segment against its screen's origin from an LCDS table, and
+the batch extracts each romset's two SVGs (named _top/_bottom or
+_left/_right) and renders each at its own window's width. The two SVGs
+share the chip's o.y.h tag namespace, which is correct, not a
+collision: a tag appearing in both would simply light in both, exactly
+as the shared chip output would. Single-screen games rebuilt through
+the new path are byte-identical.
+
+Two of the nine (gnw_dkong2, gnw_mickdon) have heavily overlapping
+soft-edged segment art and rescaled to ~330-420px wide to fit the
+RL_BG_SAVE_SIZE budget, the same story as tbatfor/tjdredd/trockteer.
+More weight for the upstream filing.
+
+The multi-screen packs ship no press images, so all nine are
+joypad-only until the position-based tap zones land.
