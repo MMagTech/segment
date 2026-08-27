@@ -12,6 +12,10 @@ patches the core: the chip emulator travels inside the game, so the
 result plays anywhere the existing 59 .mgw games play. You bring your
 own ROMs and artwork packs; this repository is only the machinery.
 
+> **New here? → [GETTING_STARTED.md](GETTING_STARTED.md)** walks you from
+> `git clone` to a game playing in RetroArch, step by step. The short
+> version is below.
+
 ## Building a game (no expertise required)
 
 You need: python3 with Pillow and numpy, and `rsvg-convert`
