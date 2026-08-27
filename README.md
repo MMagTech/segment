@@ -1,7 +1,25 @@
 # segment
 
-Tools for bringing LCD handheld games to the gw-libretro ("Handheld
-Electronic Game") core. Two independent tracks:
+Tools that turn MAME's chip-level LCD handheld emulation (every Nintendo
+Game & Watch, the Tiger Electronics catalogue, Konami, Elektronika) into
+self-contained `.mgw` games for the **stock, unmodified** gw-libretro
+("Handheld Electronic Game") core in RetroArch.
+
+Each built game packs the real ROM, a Sharp CPU core written in Lua and
+verified instruction-exact against MAME, the community's scanned unit
+artwork, working touch buttons, and sound into one file. Nothing here
+patches the core: the chip emulator travels inside the game, so the
+result plays anywhere the existing 59 .mgw games play. You bring your
+own ROMs and artwork packs; this repository is only the machinery
+(see Copyright below).
+
+Verified so far: three CPU cores (SM5A, SM510, SM511/SM512 melody), all
+lockstep-traced against MAME, and over a hundred games built and
+exercised headless, including taps proven byte-identical to button
+presses. The technical journal is `FINDINGS.md`; current status and
+next steps are `NEXT.md`.
+
+Two independent tracks:
 
 ## 1. A pointer fix for the 59 existing games
 
