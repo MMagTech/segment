@@ -100,7 +100,11 @@ English and a foreign edition to choose between.
    dkong2/mickdon rescaled small under the pixel budget; see the
    upstream filing note.
 
-5. **SM511/SM512 melody core**: ~40 Tiger/Konami games have music.
+5. ~~SM511/SM512 melody core~~ **Done 2026-08-27: core verified
+   lockstep against MAME first try (18,137/18,137 instructions on
+   gnw_climber, display dot-for-dot); 39 games built, 38 respond,
+   including Zelda and the Konami line. games-out/ holds 136.**
+   Known non-responders: tgaiden, tvindictr, bassmate.
 
 6. **`convert.py` wrapper** (one command: romset.zip + artwork.zip ->
    .mgw), LAST, once the pipeline is proven across many games. Note it

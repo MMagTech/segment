@@ -916,3 +916,28 @@ differ in both video and audio hashes.
 The batch learned to split the two binaries a melody romset carries
 (the 4K .program and the 256-byte .melody); picking the first file by
 sort order would have loaded the melody ROM as the program.
+
+## The melody batch: the catalogue is effectively built (2026-08-27, night)
+
+39 SM511/SM512 games attempted, 39 built, 38 boot and respond,
+including Zelda (SM512, dual-screen, the marquee of the whole family),
+Super Mario Bros. with taps verified byte-identical to the pad, Balloon
+Fight, and the entire Konami handheld line (all four TMNT titles, Top
+Gun, Gradius, Contra). The one non-responder is bassmate, the Telko
+Bassmate Computer, a fishing calculator rather than a game: it boots
+and displays but ignores every input, joining tgaiden and tvindictr on
+the open list.
+
+Two mechanical finds: a maker string containing a slash ("Telko /
+Nintendo") became a directory in the output filename, so batch
+filenames are now sanitized; and the earlier melody-romset split (the
+4K .program vs the 256-byte .melody) held up across all 39.
+
+games-out/ now holds 136 games. This is every game in MAME's hh_sm510
+driver that has a romset and an artwork pack on disk and a verified
+chip, minus nothing: the single-screen batch, the dual-screen nine, and
+the melody catalogue are all in. What remains is quality (tap zones for
+the ~85 games whose packs ship no press images, the three input
+mysteries, the five budget-shrunk games) and reach (the 14 rom-no-art
+games buildable with drawn panels, the 8 art-no-rom games waiting on
+dumps, the 8 games on unported chips like Konami's SM530 trio).
