@@ -77,46 +77,150 @@ def encode_rle(w, h, rgba, bgcolor=None):
 
 # ---------------------------------------------------------------- panel
 
+def panel_layout(wiring, lw, lh):
+    """Derive the drawn panel's geometry from what the game's wiring
+    says exists: paired side buttons, a d-pad, action buttons, and a
+    pill row. Returns the layout dict main() expects, with every drawn
+    control doubling as a tap zone."""
+    acts = set()
+    for col in wiring['columns']:
+        acts |= set(col)
+    acts |= {p['action'] for p in wiring.get('pins', {}).values()}
+
+    def side(kinds):
+        return [k for k in kinds if k in acts]
+
+    left = side(('lup', 'ldown')) or side(('left',))
+    right = side(('rup', 'rdown')) or side(('right',))
+    dpad = [k for k in ('up', 'down', 'left', 'right') if k in acts]
+    use_dpad = len(dpad) >= 3
+    if use_dpad:
+        left = []
+    fire = [k for k in ('b1', 'b2', 'b3', 'jump', 'hit', 'fire', 'shoot',
+                        'punch', 'button4') if k in acts][:2]
+    if not right and fire:
+        right, fire = fire, []
+    pills = [k for k in ('gamea', 'gameb', 'time', 'alarm', 'start',
+                         'pause', 'sound', 'select') if k in acts][:5]
+
+    BTN_R = 34                      # big round button radius
+    side_w = 118 if (left or right or use_dpad or fire) else 28
+    title_h = 64
+    pill_h = 74 if pills else 20
+    W = max(560, lw + 2 * side_w)
+    lx = (W - lw) // 2
+    ly = title_h
+    H = title_h + lh + pill_h + 26
+
+    buttons = []
+    def round_btn(cx, cy, act, label, r=BTN_R):
+        buttons.append({'shape': 'round', 'r': r, 'cx': cx, 'cy': cy,
+                        'act': act, 'label': label,
+                        'rect': [cx - r, cy - r, 2 * r, 2 * r]})
+    LABEL = {'lup': 'UP', 'ldown': 'DOWN', 'rup': 'UP', 'rdown': 'DOWN',
+             'left': 'LEFT', 'right': 'RIGHT', 'b1': 'A', 'b2': 'B',
+             'b3': 'C', 'jump': 'JUMP', 'hit': 'HIT', 'fire': 'FIRE',
+             'shoot': 'FIRE', 'punch': 'PUNCH', 'button4': 'D',
+             'gamea': 'GAME A', 'gameb': 'GAME B', 'time': 'TIME',
+             'alarm': 'ALARM', 'start': 'START', 'pause': 'PAUSE',
+             'sound': 'SOUND', 'select': 'SELECT', 'up': 'UP',
+             'down': 'DOWN'}
+
+    cy_mid = ly + lh // 2
+    def stack(cluster, cx):
+        if len(cluster) == 2:
+            round_btn(cx, cy_mid - 52, cluster[0], LABEL[cluster[0]], 30)
+            round_btn(cx, cy_mid + 52, cluster[1], LABEL[cluster[1]], 30)
+        elif cluster:
+            round_btn(cx, cy_mid, cluster[0], LABEL[cluster[0]])
+    if use_dpad:
+        cx = side_w // 2
+        for act, dx, dy in (('up', 0, -40), ('down', 0, 40),
+                            ('left', -40, 0), ('right', 40, 0)):
+            if act in dpad:
+                round_btn(cx + dx, cy_mid + dy, act, '', 22)
+    else:
+        stack(left, side_w // 2)
+    stack(right if not use_dpad else (right or fire), W - side_w // 2)
+    if use_dpad and right and fire:
+        stack(fire, W - side_w // 2 - 0)   # fire shares the right stack
+
+    if pills:
+        pw, gap = 74, 26
+        total = len(pills) * pw + (len(pills) - 1) * gap
+        x = (W - total) // 2
+        py = ly + lh + 22
+        for a in pills:
+            buttons.append({'shape': 'pill', 'act': a, 'label': LABEL[a],
+                            'rect': [x, py, pw, 24]})
+            x += pw + gap
+
+    return {'panel_w': W, 'panel_h': H, 'lcd_x': lx, 'lcd_y': ly,
+            'lcd_w': lw, 'lcd_h': lh, 'artwork': False,
+            'lcds': [(lx, ly, lw, lh)], 'buttons': buttons}
+
+
 def build_panel(segdir, layout, title='LCD'):
-    """Render the panel with rsvg: silver body, the LCD backdrop inset,
-    round action buttons, service pills. Returns (w, h, rgba)."""
+    """Render the generated panel with rsvg: a clean modern shell, dark
+    bezel around the LCD, convex round action buttons, labelled pills.
+    Returns (w, h, rgba)."""
     import base64
     bd = open(os.path.join(segdir, 'backdrop.png'), 'rb').read()
     b64 = base64.b64encode(bd).decode()
     W, H = layout['panel_w'], layout['panel_h']
     lx, ly = layout['lcd_x'], layout['lcd_y']
     lw, lh = layout['lcd_w'], layout['lcd_h']
-    title_upper = title.upper()[:18]
+    title_upper = title.upper()[:26]
     parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}"
   viewBox="0 0 {W} {H}">
   <defs>
     <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d9d9d3"/>
-      <stop offset="1" stop-color="#b9b9b2"/>
+      <stop offset="0" stop-color="#f2f0ec"/>
+      <stop offset="1" stop-color="#dcdad4"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6473c"/>
+      <stop offset="1" stop-color="#b02a22"/>
+    </linearGradient>
+    <linearGradient id="bez" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1d22"/>
+      <stop offset="1" stop-color="#34343c"/>
     </linearGradient>
   </defs>
-  <rect width="{W}" height="{H}" rx="18" fill="url(#body)"/>
-  <rect x="{lx-8}" y="{ly-8}" width="{lw+16}" height="{lh+16}" rx="8" fill="#4a4640"/>
+  <rect width="{W}" height="{H}" rx="26" fill="url(#body)"/>
+  <rect x="1.5" y="1.5" width="{W-3}" height="{H-3}" rx="25"
+    fill="none" stroke="#b9b6ae" stroke-width="3"/>
+  <text x="{lx}" y="42" font-family="Helvetica Neue, Helvetica, Arial"
+    font-size="24" font-weight="bold" fill="#3a3a40"
+    letter-spacing="5">{title_upper}</text>
+  <rect x="{lx-14}" y="{ly-14}" width="{lw+28}" height="{lh+28}" rx="16"
+    fill="url(#bez)"/>
+  <rect x="{lx-14}" y="{ly-14}" width="{lw+28}" height="{lh+28}" rx="16"
+    fill="none" stroke="#00000055" stroke-width="2"/>
   <image x="{lx}" y="{ly}" width="{lw}" height="{lh}"
     xlink:href="data:image/png;base64,{b64}"
-    xmlns:xlink="http://www.w3.org/1999/xlink"/>
-  <text x="{lx+10}" y="30" font-family="Helvetica, Arial" font-size="22"
-    font-weight="bold" fill="#5c5850" letter-spacing="4">{title_upper}</text>''']
+    xmlns:xlink="http://www.w3.org/1999/xlink"/>''']
     for b in layout['buttons']:
-        x, y, w, h = b['rect']
-        cx, cy = x + w // 2, y + h // 2
         if b['shape'] == 'round':
+            cx, cy, r = b['cx'], b['cy'], b['r']
             parts.append(f'''
-  <circle cx="{cx}" cy="{cy}" r="{w//2}" fill="#6e2a24"/>
-  <circle cx="{cx}" cy="{cy-2}" r="{w//2-4}" fill="#a03830"/>
-  <text x="{cx}" y="{y+h+18}" text-anchor="middle" font-family="Helvetica"
-    font-size="13" font-weight="bold" fill="#5c5850">{b['label']}</text>''')
+  <circle cx="{cx}" cy="{cy+3}" r="{r}" fill="#00000030"/>
+  <circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#btn)"/>
+  <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#7e150f" stroke-width="1.5"/>
+  <ellipse cx="{cx}" cy="{cy-r*0.42}" rx="{r*0.62}" ry="{r*0.3}" fill="#ffffff33"/>''')
+            if b['label']:
+                parts.append(f'''
+  <text x="{cx}" y="{cy+r+20}" text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica" font-size="12"
+    font-weight="bold" fill="#6b6b70" letter-spacing="1">{b['label']}</text>''')
         else:
+            x, y, w, h = b['rect']
             parts.append(f'''
-  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h//2}" fill="#7d7a72"/>
-  <rect x="{x+2}" y="{y+2}" width="{w-4}" height="{h-6}" rx="{(h-6)//2}" fill="#efeeea"/>
-  <text x="{cx}" y="{y+h+14}" text-anchor="middle" font-family="Helvetica"
-    font-size="10" fill="#5c5850">{b['label']}</text>''')
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h//2}" fill="#c9c6bf"/>
+  <rect x="{x+3}" y="{y+2}" width="{w-6}" height="{h-6}" rx="{(h-6)//2}" fill="#f4f2ee"/>
+  <text x="{x+w//2}" y="{y+h+18}" text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica" font-size="11"
+    font-weight="bold" fill="#6b6b70" letter-spacing="1">{b['label']}</text>''')
     parts.append('</svg>')
     r = subprocess.run(['rsvg-convert', '--format', 'png'],
                        input=''.join(parts).encode(), capture_output=True)
@@ -325,18 +429,8 @@ def main():
             print('warning: %s has %d screens but %d segment dirs'
                   % (os.path.basename(artwork_zip), len(panel.lcds), len(segdirs)))
     else:
-        layout = {
-            'panel_w': max(480, lw), 'panel_h': lh + 190,
-            'lcd_x': 0, 'lcd_y': 50, 'lcd_w': lw, 'lcd_h': lh, 'artwork': False,
-            'lcds': [(0, 50, lw, lh)],
-            'buttons': [
-                {'label': 'LEFT',   'shape': 'round', 'rect': [36,  lh+80, 64, 64], 'act': 'left'},
-                {'label': 'RIGHT',  'shape': 'round', 'rect': [560, lh+80, 64, 64], 'act': 'right'},
-                {'label': 'GAME A', 'shape': 'pill',  'rect': [566, 10, 64, 22], 'act': 'gamea'},
-                {'label': 'GAME B', 'shape': 'pill',  'rect': [478, 10, 64, 22], 'act': 'gameb'},
-                {'label': 'TIME',   'shape': 'pill',  'rect': [390, 10, 64, 22], 'act': 'time'},
-            ],
-        }
+        wiring0 = load_inputs().get(shortname) or {'columns': [], 'pins': {}}
+        layout = panel_layout(wiring0, lw, lh)
 
     # Buzzer tones. The SM5A drives its piezo by toggling R in software;
     # Ball's bursts measure as half-periods of 4 and 3 machine cycles,
