@@ -335,6 +335,11 @@ INPUT_MAPS_SM510 = {
         'time': (1, 0x1), 'gameb': (1, 0x2), 'gamea': (1, 0x4),
         'alarm': (1, 0x8),
     },
+    'trthuball': {   # Tronica Thunder Ball (shares trsrescue ports)
+        'right': (0, 0x1), 'left': (0, 0x8),
+        'alarm': (1, 0x1), 'gameb': (1, 0x2), 'gamea': (1, 0x4),
+        'time': (1, 0x8),
+    },
 }
 
 
