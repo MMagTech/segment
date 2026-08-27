@@ -67,7 +67,16 @@ English and a foreign edition to choose between.
    shippable (no ground truth to verify the action mapping); see
    FINDINGS. Deferred to manual per-game data if ever wanted.
 
-2b. **Button rectangles from press images (the working path).**
+2b. **Hand-placed tap zones for units without press images.** 85 packs
+   have a real drawn console with visible buttons but no pressed-state
+   overlays. These are hand-placeable and verifiable (proven on
+   tbatman: read the button off the render, express as a panel fraction
+   in tools/gw/tapzones.json, label with the driver's action, confirm
+   tap==pad on the bench). This is the main remaining work; 1/85 done.
+   The other 32 packs are backdrop-only (no console art) and cannot be
+   tapped without a different pack.
+
+2c. **Button rectangles from press images (the working path).**
    The packs carry the answer: each ships a full-size overlay drawing one
    button pressed, tagged with the input it reports, so compositing it
    over the idle panel and taking the bounding box of the change locates

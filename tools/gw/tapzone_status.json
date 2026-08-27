@@ -1,0 +1,6 @@
+{
+ "auto_press_images": 40,
+ "hand_placeable_unit_no_press": 85,
+ "backdrop_only_untappable": 32,
+ "note": "85 packs have a real drawn unit with buttons but no pressed-state overlays; tap zones are hand-read off the render and verified tap==pad. The 32 backdrop-only packs contain no console art, so nothing to tap without a different pack."
+}
