@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Makes each Game & Watch simulator reveal where its buttons are drawn.
 
-Marcus's overnight ask, 2026-08-25: no controller, tap the buttons on
-the artwork itself, "as if I were really playing the game back in the
-day," hard-coded data rather than editor content. The simulators ignore
+The goal, set 2026-08-25: no controller, tap the buttons on the
+artwork itself, as if really playing the game back in the day,
+hard-coded data rather than editor content. The simulators ignore
 the libretro pointer (proven with bench -tap), so taps must synthesize
 JOYPAD presses, which means knowing where each drawn button sits. Nobody
 hand-maps 59 games: every sim draws its button PRESSED when the mapped

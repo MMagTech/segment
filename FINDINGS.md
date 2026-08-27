@@ -560,7 +560,7 @@ implemented; those add an internal melody ROM on top of this.
 
 ## SM510 core verified (2026-08-26, late) - ROMs arrived
 
-The user's MAME 0.260 non-merged set turned up on their NAS, so the
+A MAME 0.260 non-merged romset became available locally, so the
 SM510 core got its real test. Verified against MAME 0.289 on gnw_stennis
 (Snoopy Tennis, a plain SM510 game): lockstep PC/ACC/BL/BM/C trace
 matches, rendered LCD identical to MAME's snapshot.

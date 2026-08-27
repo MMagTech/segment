@@ -9,8 +9,8 @@ for the panel. See FINDINGS.md for the full technical record.
 ## Assets on disk (gitignored, your own files)
 - `roms/mame/`: 162 of 175 driver romsets (MAME 0.260 non-merged)
 - `roms/artwork/`: 157 of 175 console artwork packs (1.6G)
-- Both were copied from the NAS / Drive archives; ROMs and artwork are
-  never committed (tool-not-payload; see README).
+- Local copies of your own files; ROMs and artwork are never
+  committed (tool-not-payload; see README).
 
 ## Done: artwork generalization (2026-08-27)
 
