@@ -1,0 +1,5172 @@
+{
+ "atakaast": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Ataka asteroidov"
+ },
+ "auslalom": {
+  "columns": [
+   {},
+   {
+    "b1": 8,
+    "b2": 2,
+    "left": 4,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Elektronika",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Autoslalom"
+ },
+ "bassmate": {
+  "columns": [
+   {
+    "alarm": 2,
+    "gamea": 1
+   },
+   {
+    "b2": 8,
+    "button4": 4,
+    "button6": 2,
+    "button8": 1
+   },
+   {
+    "b1": 8,
+    "b3": 4,
+    "button5": 2,
+    "button7": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Telko / Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Bassmate Computer"
+ },
+ "biathlon": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Biathlon"
+ },
+ "ehockey": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Hockey (Elektronika)"
+ },
+ "gnw_ball": {
+  "columns": [
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": 0,
+  "maker": "Nintendo",
+  "mux_columns": 0,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Ball"
+ },
+ "gnw_bfight": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "b1": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Balloon Fight (Crystal Screen)"
+ },
+ "gnw_bfightn": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "b1": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Balloon Fight (New Wide Screen)"
+ },
+ "gnw_bjack": {
+  "columns": [
+   {
+    "ldown": 2,
+    "lup": 1,
+    "rdown": 4,
+    "rup": 8
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm512",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Black Jack"
+ },
+ "gnw_boxing": {
+  "columns": [
+   {
+    "b1": 4
+   },
+   {
+    "b1": 1
+   },
+   {
+    "down": 4,
+    "up": 8
+   },
+   {
+    "down": 1,
+    "up": 2
+   },
+   {
+    "left": 8,
+    "right": 4
+   },
+   {
+    "left": 2,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 7,
+  "pins": {},
+  "screens": 1,
+  "title": "Micro Vs. System: Boxing"
+ },
+ "gnw_bsweep": {
+  "columns": [
+   {
+    "down": 8,
+    "left": 1,
+    "right": 4,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm512",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Bomb Sweeper"
+ },
+ "gnw_cgrab": {
+  "columns": [
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Crab Grab"
+ },
+ "gnw_chef": {
+  "columns": [
+   {},
+   {
+    "left": 8,
+    "right": 4
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Chef"
+ },
+ "gnw_climber": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "jump": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Climber (Crystal Screen)"
+ },
+ "gnw_climbern": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "jump": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Climber (New Wide Screen)"
+ },
+ "gnw_dkcirc": {
+  "columns": [
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Donkey Kong Circus"
+ },
+ "gnw_dkhockey": {
+  "columns": [
+   {
+    "b1": 4
+   },
+   {
+    "b1": 1
+   },
+   {
+    "down": 4,
+    "up": 8
+   },
+   {
+    "down": 1,
+    "up": 2
+   },
+   {
+    "left": 8,
+    "right": 4
+   },
+   {
+    "left": 2,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 7,
+  "pins": {},
+  "screens": 1,
+  "title": "Micro Vs. System: Donkey Kong Hockey"
+ },
+ "gnw_dkjr": {
+  "columns": [
+   {
+    "jump": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Donkey Kong Jr. (New Wide Screen)"
+ },
+ "gnw_dkjrp": {
+  "columns": [
+   {
+    "jump": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Donkey Kong Jr. (Panorama Screen)"
+ },
+ "gnw_dkong": {
+  "columns": [
+   {
+    "jump": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Donkey Kong"
+ },
+ "gnw_dkong2": {
+  "columns": [
+   {
+    "jump": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Donkey Kong II"
+ },
+ "gnw_dkong3": {
+  "columns": [
+   {
+    "b1": 4
+   },
+   {
+    "b1": 1
+   },
+   {
+    "down": 4,
+    "up": 8
+   },
+   {
+    "down": 1,
+    "up": 2
+   },
+   {
+    "left": 8,
+    "right": 4
+   },
+   {
+    "left": 2,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 7,
+  "pins": {},
+  "screens": 1,
+  "title": "Micro Vs. System: Donkey Kong 3"
+ },
+ "gnw_egg": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Egg"
+ },
+ "gnw_fire": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Fire (Wide Screen)"
+ },
+ "gnw_fireatk": {
+  "columns": [
+   {
+    "ldown": 8,
+    "lup": 4,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Fire Attack"
+ },
+ "gnw_fires": {
+  "columns": [
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": 0,
+  "maker": "Nintendo",
+  "mux_columns": 0,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Fire (Silver)"
+ },
+ "gnw_flagman": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 1,
+    "rdown": 8,
+    "rup": 2
+   },
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Flagman"
+ },
+ "gnw_gcliff": {
+  "columns": [
+   {
+    "down": 8,
+    "left": 1,
+    "right": 4,
+    "up": 2
+   },
+   {
+    "jump": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm512",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Gold Cliff"
+ },
+ "gnw_ghouse": {
+  "columns": [
+   {
+    "b1": 8
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Green House"
+ },
+ "gnw_helmet": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Helmet (version CN-17)"
+ },
+ "gnw_helmeto": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Helmet (version CN-07)"
+ },
+ "gnw_judge": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Judge (purple version)"
+ },
+ "gnw_judgeo": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Judge (green version)"
+ },
+ "gnw_lboat": {
+  "columns": [
+   {
+    "left": 1,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Life Boat"
+ },
+ "gnw_lion": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Lion"
+ },
+ "gnw_manhole": {
+  "columns": [
+   {
+    "ldown": 8,
+    "lup": 4,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Manhole (New Wide Screen)"
+ },
+ "gnw_manholeg": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Manhole (Gold)"
+ },
+ "gnw_mario": {
+  "columns": [
+   {
+    "ldown": 8,
+    "lup": 4,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Mario Bros."
+ },
+ "gnw_mariocm": {
+  "columns": [
+   {
+    "b1": 1,
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mario's Cement Factory (New Wide Screen)"
+ },
+ "gnw_mariocmt": {
+  "columns": [
+   {
+    "b1": 1,
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mario's Cement Factory (Table Top, version CM-72)"
+ },
+ "gnw_mariocmta": {
+  "columns": [
+   {
+    "b1": 1,
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mario's Cement Factory (Table Top, version CM-72A)"
+ },
+ "gnw_mariotj": {
+  "columns": [
+   {
+    "left": 8,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mario The Juggler"
+ },
+ "gnw_mbaway": {
+  "columns": [
+   {
+    "b1": 1,
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mario's Bombs Away"
+ },
+ "gnw_mickdon": {
+  "columns": [
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Mickey & Donald"
+ },
+ "gnw_mmouse": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mickey Mouse (Wide Screen)"
+ },
+ "gnw_mmousep": {
+  "columns": [
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Mickey Mouse (Panorama Screen)"
+ },
+ "gnw_octopus": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Octopus"
+ },
+ "gnw_opanic": {
+  "columns": [
+   {
+    "left": 8,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Oil Panic"
+ },
+ "gnw_pchute": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Parachute"
+ },
+ "gnw_pinball": {
+  "columns": [
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Pinball"
+ },
+ "gnw_popeye": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Popeye (Wide Screen)"
+ },
+ "gnw_popeyep": {
+  "columns": [
+   {
+    "left": 4,
+    "punch": 1,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Popeye (Panorama Screen)"
+ },
+ "gnw_rshower": {
+  "columns": [
+   {
+    "b1": 4,
+    "time": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2
+   },
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Rain Shower"
+ },
+ "gnw_sbuster": {
+  "columns": [
+   {
+    "left": 1,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Safe Buster"
+ },
+ "gnw_smb": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "jump": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Super Mario Bros. (Crystal Screen)"
+ },
+ "gnw_smbn": {
+  "columns": [
+   {
+    "alarm": 4,
+    "gamea": 2,
+    "time": 1
+   },
+   {
+    "down": 4,
+    "left": 8,
+    "right": 2,
+    "up": 1
+   },
+   {
+    "jump": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Super Mario Bros. (New Wide Screen)"
+ },
+ "gnw_snoopyp": {
+  "columns": [
+   {
+    "hit": 1,
+    "left": 4,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Snoopy (Panorama Screen)"
+ },
+ "gnw_squish": {
+  "columns": [
+   {
+    "down": 1,
+    "left": 8,
+    "right": 2,
+    "up": 4
+   },
+   {
+    "alarm": 8,
+    "gamea": 2,
+    "gameb": 4,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Squish"
+ },
+ "gnw_ssparky": {
+  "columns": [
+   {
+    "b1": 4,
+    "left": 1,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Spitball Sparky"
+ },
+ "gnw_stennis": {
+  "columns": [
+   {
+    "down": 1,
+    "hit": 8,
+    "up": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Snoopy Tennis"
+ },
+ "gnw_tbridge": {
+  "columns": [
+   {
+    "left": 8,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Turtle Bridge"
+ },
+ "gnw_tfish": {
+  "columns": [
+   {
+    "left": 1,
+    "right": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 2,
+    "gameb": 4,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Game & Watch: Tropical Fish"
+ },
+ "gnw_vermin": {
+  "columns": [
+   {
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": 0,
+  "maker": "Nintendo",
+  "mux_columns": 0,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Game & Watch: Vermin"
+ },
+ "gnw_zelda": {
+  "columns": [
+   {
+    "down": 8,
+    "left": 1,
+    "right": 4,
+    "up": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm512",
+  "fixed_column": null,
+  "maker": "Nintendo",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 2,
+  "title": "Game & Watch: Zelda"
+ },
+ "kbilly": {
+  "columns": [
+   {
+    "ldown": 4,
+    "lleft": 1,
+    "lright": 8,
+    "lup": 2
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   },
+   {
+    "rdown": 4,
+    "rup": 2
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "The Adventures of Bayou Billy (handheld)"
+ },
+ "kblades": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   },
+   {
+    "b1": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Blades of Steel (handheld)"
+ },
+ "kbottom9": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "power_off": 1,
+    "sound": 2,
+    "start": 8,
+    "time": 4
+   },
+   {
+    "b1": 4
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Bottom of the Ninth (handheld)"
+ },
+ "kbucky": {
+  "columns": [
+   {
+    "b1": 2,
+    "pause": 4,
+    "start": 8,
+    "up": 1
+   },
+   {
+    "down": 1,
+    "power_off": 4,
+    "sound": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Bucky O'Hare (handheld)"
+ },
+ "kchqflag": {
+  "columns": [
+   {
+    "lleft": 1,
+    "pause": 4,
+    "rup": 2,
+    "start": 8
+   },
+   {
+    "lright": 1,
+    "power_off": 4,
+    "rdown": 2,
+    "sound": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Chequered Flag (handheld)"
+ },
+ "kcontra": {
+  "columns": [
+   {
+    "left": 1,
+    "right": 8
+   },
+   {
+    "b1": 8,
+    "power_off": 4,
+    "sound": 2,
+    "time": 1
+   },
+   {
+    "start": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Contra (handheld)"
+ },
+ "kdribble": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "b1": 8,
+    "power_off": 4,
+    "sound": 2,
+    "time": 1
+   },
+   {
+    "start": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Double Dribble (handheld)"
+ },
+ "kgarfld": {
+  "columns": [
+   {
+    "left": 1,
+    "power_off": 4,
+    "sound": 8,
+    "up": 2
+   },
+   {
+    "down": 2,
+    "pause": 4,
+    "right": 1,
+    "start": 8
+   },
+   {
+    "b1": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Garfield (Konami)"
+ },
+ "kgradius": {
+  "columns": [
+   {
+    "power_off": 2,
+    "sound": 8,
+    "start": 1,
+    "time": 4
+   },
+   {
+    "b1": 4,
+    "down": 2,
+    "up": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Gradius (handheld)"
+ },
+ "kloneran": {
+  "columns": [
+   {
+    "b1": 2,
+    "left": 1,
+    "right": 8
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "The Lone Ranger (handheld)"
+ },
+ "knascar": {
+  "columns": [
+   {
+    "lleft": 1,
+    "pause": 4,
+    "rup": 2,
+    "start": 8
+   },
+   {
+    "lright": 1,
+    "power_off": 4,
+    "rdown": 2,
+    "sound": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Bill Elliott's NASCAR Racing (handheld)"
+ },
+ "knfl": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   },
+   {
+    "b1": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "NFL Football (Konami, handheld)"
+ },
+ "kosmicmt": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": null,
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Kosmicheskiy most"
+ },
+ "krybolov": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Kot-rybolov (Elektronika)"
+ },
+ "kskatedie": {
+  "columns": [
+   {
+    "lleft": 1,
+    "lright": 8,
+    "lup": 2,
+    "rdown": 4
+   },
+   {
+    "power_off": 1,
+    "sound": 2,
+    "start": 8,
+    "time": 4
+   },
+   {
+    "rup": 4
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Skate or Die (Konami, handheld)"
+ },
+ "kst25": {
+  "columns": [
+   {
+    "left": 1,
+    "right": 8
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   },
+   {
+    "b1": 4
+   }
+  ],
+  "cpu": null,
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Star Trek: 25th Anniversary (handheld)"
+ },
+ "ktmnt": {
+  "columns": [
+   {
+    "ldown": 4,
+    "lleft": 1,
+    "lright": 8,
+    "lup": 2
+   },
+   {
+    "power_off": 4,
+    "sound": 2,
+    "start": 8,
+    "time": 1
+   },
+   {
+    "rleft": 1,
+    "rright": 2
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Teenage Mutant Ninja Turtles (handheld)"
+ },
+ "ktmnt2": {
+  "columns": [
+   {
+    "pause": 2,
+    "power_off": 1,
+    "sound": 4,
+    "start": 8
+   },
+   {
+    "down": 8,
+    "left": 2,
+    "right": 1,
+    "up": 4
+   },
+   {
+    "b1": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Teenage Mutant Ninja Turtles II: Splinter Speaks (handheld)"
+ },
+ "ktmnt3": {
+  "columns": [
+   {
+    "left": 1,
+    "pause": 4,
+    "start": 8,
+    "up": 2
+   },
+   {
+    "down": 2,
+    "power_off": 4,
+    "right": 1,
+    "sound": 8
+   },
+   {
+    "b1": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Teenage Mutant Ninja Turtles 3: Shredder's Last Stand (handheld)"
+ },
+ "ktmntbb": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "pause": 4,
+    "power_off": 1,
+    "sound": 2,
+    "start": 8
+   },
+   {
+    "b1": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Teenage Mutant Ninja Turtles: Basketball"
+ },
+ "ktopgun": {
+  "columns": [
+   {
+    "down": 4,
+    "left": 1,
+    "right": 8,
+    "up": 2
+   },
+   {
+    "b1": 8,
+    "power_off": 4,
+    "sound": 2,
+    "time": 1
+   },
+   {
+    "start": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Top Gun (handheld)"
+ },
+ "ktopgun2": {
+  "columns": [
+   {
+    "lleft": 1,
+    "pause": 4,
+    "rup": 2,
+    "start": 8
+   },
+   {
+    "lright": 1,
+    "power_off": 4,
+    "rdown": 2,
+    "sound": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": null,
+  "maker": "Konami",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Top Gun: Second Mission (handheld)"
+ },
+ "kvakazad": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Kvaka-zadavaka"
+ },
+ "naltair": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Nauchpribor)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Altair (Nauchpribor)"
+ },
+ "nsmb3": {
+  "columns": [
+   {
+    "b2": 4,
+    "down": 64,
+    "left": 128,
+    "right": 32,
+    "time": 2,
+    "up": 16
+   }
+  ],
+  "cpu": "sm530",
+  "fixed_column": null,
+  "maker": "Nelsonic",
+  "mux_columns": 1,
+  "pins": {},
+  "screens": 1,
+  "title": "Super Mario Bros. 3 (Nelsonic)"
+ },
+ "nsmw": {
+  "columns": [
+   {
+    "b2": 4,
+    "down": 64,
+    "left": 128,
+    "right": 32,
+    "time": 2,
+    "up": 16
+   }
+  ],
+  "cpu": "sm530",
+  "fixed_column": null,
+  "maker": "Nelsonic",
+  "mux_columns": 1,
+  "pins": {},
+  "screens": 1,
+  "title": "Super Mario World (Nelsonic)"
+ },
+ "nstarfox": {
+  "columns": [
+   {
+    "b1": 2,
+    "b2": 4
+   }
+  ],
+  "cpu": "sm530",
+  "fixed_column": null,
+  "maker": "Nelsonic",
+  "mux_columns": 1,
+  "pins": {},
+  "screens": 1,
+  "title": "Star Fox (Nelsonic)"
+ },
+ "nummunch": {
+  "columns": [
+   {},
+   {
+    "keypad": 4,
+    "power_off": 1
+   },
+   {
+    "keypad": 4
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 2,
+    "left": 4,
+    "right": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "VTech",
+  "mux_columns": 8,
+  "pins": {},
+  "screens": 1,
+  "title": "Electronic Number Muncher"
+ },
+ "nupogodi": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Nu, pogodi!"
+ },
+ "okhota": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Okhota"
+ },
+ "rkosmosa": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Razvedchiki kosmosa"
+ },
+ "taddams": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "select": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "The Addams Family (Tiger)"
+ },
+ "taltbeast": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Altered Beast (Tiger)"
+ },
+ "tapollo13": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Apollo 13 (Tiger)"
+ },
+ "taynyoke": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": false
+   },
+   "ba": {
+    "action": "right",
+    "active_low": false
+   }
+  },
+  "screens": 1,
+  "title": "Tayny okeana"
+ },
+ "tbatfor": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Batman Forever: Double Dose of Doom (Tiger)"
+ },
+ "tbatman": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Batman (Tiger)"
+ },
+ "tbatmana": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {},
+   {
+    "down": 2
+   },
+   {
+    "b1": 2
+   },
+   {},
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Batman: The Animated Series (Tiger)"
+ },
+ "tbtoads": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "select": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Battletoads (Tiger)"
+ },
+ "tbttf": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Back to the Future (Tiger)"
+ },
+ "tddragon": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Double Dragon (Tiger)"
+ },
+ "tddragon2": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 2,
+    "punch": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Double Dragon II: The Revenge (Tiger)"
+ },
+ "tddragon3": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "punch": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "select": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Double Dragon 3: The Rosetta Stone (Tiger)"
+ },
+ "tdennis": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Dennis the Menace (Tiger)"
+ },
+ "tdummies": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "The Incredible Crash Dummies (Tiger)"
+ },
+ "tflash": {
+  "columns": [
+   {},
+   {
+    "left": 4
+   },
+   {},
+   {
+    "right": 2
+   },
+   {
+    "b1": 2
+   },
+   {
+    "b2": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 7,
+  "maker": "Tiger Electronics",
+  "mux_columns": 7,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "The Flash (Tiger)"
+ },
+ "tgaiden": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2,
+    "jump": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Ninja Gaiden (Tiger)"
+ },
+ "tgaiden3": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2,
+    "jump": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Ninja Gaiden III (Tiger)"
+ },
+ "tgargnf": {
+  "columns": [
+   {},
+   {
+    "left": 4,
+    "right": 2
+   },
+   {},
+   {
+    "b1": 2
+   },
+   {
+    "b2": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Gargoyles: Night Flight (Tiger)"
+ },
+ "tgaunt": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Gauntlet (Tiger)"
+ },
+ "tgoldeye": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "fire": 2,
+    "punch": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "007: GoldenEye (Tiger)"
+ },
+ "tgoldnaxe": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Golden Axe (Tiger)"
+ },
+ "thalone": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Home Alone (Tiger)"
+ },
+ "thalone2": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Home Alone 2: Lost in New York (Tiger)"
+ },
+ "thook": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Hook (Tiger)"
+ },
+ "tigarden": {
+  "columns": [
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 4
+   },
+   {},
+   {
+    "b1": 8,
+    "down": 2
+   },
+   {
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 8,
+  "pins": {},
+  "screens": 1,
+  "title": "Thief in Garden"
+ },
+ "tinday": {
+  "columns": [
+   {
+    "fire": 4,
+    "up": 1
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Independence Day (Tiger)"
+ },
+ "tjdredd": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "fire": 2,
+    "punch": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Judge Dredd (Tiger)"
+ },
+ "tjpark": {
+  "columns": [
+   {
+    "b1": 4,
+    "up": 1
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Jurassic Park (Tiger)"
+ },
+ "tkarnov": {
+  "columns": [
+   {
+    "up": 1
+   },
+   {
+    "left": 2,
+    "right": 1
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 2
+   },
+   {
+    "b2": 2,
+    "b3": 4
+   },
+   {
+    "time": 4
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Karnov (Tiger)"
+ },
+ "tkazaam": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Kazaam (Tiger)"
+ },
+ "tmchammer": {
+  "columns": [
+   {
+    "lup": 4,
+    "rleft": 1
+   },
+   {
+    "rright": 1,
+    "rup": 2
+   },
+   {
+    "lright": 4,
+    "rdown": 2
+   },
+   {
+    "lleft": 4
+   },
+   {
+    "ldown": 4
+   },
+   {
+    "time": 4
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "MC Hammer: U Can't Touch This (Tiger)"
+ },
+ "tmegaman3": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "select": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Mega Man 3 (Tiger)"
+ },
+ "tmigmax": {
+  "columns": [
+   {},
+   {
+    "left": 4,
+    "right": 2
+   },
+   {},
+   {
+    "b1": 2
+   },
+   {
+    "b2": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Mighty Max (Tiger)"
+ },
+ "tmkombat": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "select": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Mortal Kombat (Tiger)"
+ },
+ "tnmarebc": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Nightmare Before Christmas (Tiger)"
+ },
+ "topaliens": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Operation: Aliens (Tiger)"
+ },
+ "tpitfight": {
+  "columns": [
+   {
+    "lup": 4,
+    "rleft": 1
+   },
+   {
+    "rright": 1,
+    "rup": 2
+   },
+   {
+    "lright": 4,
+    "rdown": 2
+   },
+   {
+    "lleft": 4
+   },
+   {
+    "ldown": 4
+   },
+   {
+    "select": 4
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Pit-Fighter (Tiger)"
+ },
+ "trclchick": {
+  "columns": [
+   {
+    "left": 2,
+    "right": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Clever Chicken"
+ },
+ "trdivadv": {
+  "columns": [
+   {
+    "down": 2,
+    "left": 8,
+    "up": 1
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Diver's Adventure"
+ },
+ "trobhood": {
+  "columns": [
+   {
+    "b1": 1,
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {},
+   {
+    "b2": 1,
+    "button4": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Robin Hood (Tiger)"
+ },
+ "trobocop2": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Robocop 2 (Tiger)"
+ },
+ "trobocop3": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Robocop 3 (Tiger)"
+ },
+ "trockteer": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "The Rocketeer (Tiger)"
+ },
+ "trsgkeep": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Super Goal Keeper"
+ },
+ "trshutvoy": {
+  "columns": [
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 4
+   },
+   {},
+   {
+    "b1": 8,
+    "down": 2
+   },
+   {
+    "time": 1
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 8,
+  "pins": {},
+  "screens": 1,
+  "title": "Shuttle Voyage"
+ },
+ "trspacadv": {
+  "columns": [
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "keypad": 8
+   },
+   {
+    "fire": 4,
+    "right": 2
+   },
+   {},
+   {
+    "time": 1
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 8,
+  "pins": {},
+  "screens": 1,
+  "title": "Space Adventure"
+ },
+ "trspacmis": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Space Mission (Tronica)"
+ },
+ "trspider": {
+  "columns": [
+   {},
+   {},
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 3,
+  "pins": {
+   "b": {
+    "action": "left",
+    "active_low": true
+   },
+   "ba": {
+    "action": "right",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Spider (Tronica)"
+ },
+ "trsrescue": {
+  "columns": [
+   {
+    "left": 8,
+    "right": 1
+   },
+   {
+    "alarm": 1,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Space Rescue"
+ },
+ "trthuball": {
+  "columns": [
+   {
+    "left": 8,
+    "right": 1
+   },
+   {
+    "alarm": 1,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Thunder Ball (Tronica)"
+ },
+ "trtreisl": {
+  "columns": [
+   {},
+   {
+    "down": 8,
+    "left": 4,
+    "right": 1,
+    "up": 2
+   },
+   {
+    "service4": 1
+   },
+   {
+    "alarm": 1,
+    "gamea": 2,
+    "gameb": 4,
+    "time": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Tronica",
+  "mux_columns": 4,
+  "pins": {},
+  "screens": 3,
+  "title": "Treasure Island (Tronica)"
+ },
+ "tsddragon": {
+  "columns": [
+   {
+    "b1": 1,
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b2": 1,
+    "punch": 2
+   },
+   {
+    "select": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Super Double Dragon (Tiger)"
+ },
+ "tsf2010": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Street Fighter 2010: The Final Fight (Tiger)"
+ },
+ "tsfight2": {
+  "columns": [
+   {
+    "jump": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Street Fighter II (Tiger)"
+ },
+ "tshadow": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "punch": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "The Shadow (Tiger)"
+ },
+ "tsharr2": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Space Harrier II (Tiger)"
+ },
+ "tsimquest": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Castlevania II: Simon's Quest (Tiger)"
+ },
+ "tsjam": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Space Jam (Tiger)"
+ },
+ "tskelwarr": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Skeleton Warriors: The Dark Crusade (Tiger)"
+ },
+ "tsonic": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Sonic The Hedgehog (Tiger)"
+ },
+ "tsonic2": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Sonic The Hedgehog 2 (Tiger)"
+ },
+ "tspidman": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Spider-Man (Tiger, 1991 version)"
+ },
+ "tstrider": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "select": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Strider (Tiger)"
+ },
+ "tsuperman": {
+  "columns": [
+   {},
+   {
+    "left": 4,
+    "right": 2
+   },
+   {},
+   {},
+   {
+    "b2": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": null,
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Superman (Tiger)"
+ },
+ "tswampt": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Swamp Thing (Tiger)"
+ },
+ "ttransf2": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b3": 1
+   },
+   {
+    "b1": 1,
+    "b2": 2
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Transformers: Generation 2 (Tiger)"
+ },
+ "tvindictr": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {},
+   {
+    "b3": 2
+   },
+   {
+    "b2": 2,
+    "fire": 1
+   },
+   {
+    "time": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Vindicators (Tiger)"
+ },
+ "twworld": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "Wayne's World (Tiger)"
+ },
+ "txmen": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2
+   },
+   {
+    "b1": 2,
+    "b3": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 6,
+  "maker": "Tiger Electronics",
+  "mux_columns": 6,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "X-Men (Tiger)"
+ },
+ "txmenpx": {
+  "columns": [
+   {
+    "up": 4
+   },
+   {
+    "left": 4,
+    "right": 2
+   },
+   {
+    "down": 2
+   },
+   {
+    "b2": 2,
+    "jump": 1
+   },
+   {
+    "pause": 1
+   },
+   {
+    "start": 8
+   }
+  ],
+  "cpu": "sm510",
+  "fixed_column": 5,
+  "maker": "Tiger Electronics",
+  "mux_columns": 5,
+  "pins": {
+   "b": {
+    "action": "power_off",
+    "active_low": true
+   },
+   "ba": {
+    "action": "sound",
+    "active_low": true
+   }
+  },
+  "screens": 1,
+  "title": "X-Men: Project X (Tiger)"
+ },
+ "uchitari": {
+  "columns": [
+   {
+    "keypad": 4
+   },
+   {
+    "keypad": 1,
+    "time": 2
+   },
+   {
+    "keypad": 4
+   },
+   {
+    "keypad": 2
+   },
+   {
+    "keypad": 4
+   },
+   {
+    "keypad": 4
+   },
+   {
+    "keypad": 4
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Elektronika",
+  "mux_columns": 7,
+  "pins": {},
+  "screens": 1,
+  "title": "Uchitel' arifmetiki (prototype?)"
+ },
+ "vesarif": {
+  "columns": [
+   {
+    "alarm": 8,
+    "gamea": 1,
+    "start": 2,
+    "time": 4
+   },
+   {
+    "ldown": 2,
+    "lup": 1,
+    "rdown": 4,
+    "rup": 8
+   }
+  ],
+  "cpu": "sm511",
+  "fixed_column": null,
+  "maker": "Elektronika",
+  "mux_columns": 2,
+  "pins": {},
+  "screens": 1,
+  "title": "Vesolaya arifmetika"
+ },
+ "vespovar": {
+  "columns": [
+   {},
+   {
+    "left": 8,
+    "right": 4
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": null,
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Vesyolyy povar"
+ },
+ "vfutbol": {
+  "columns": [
+   {},
+   {
+    "ldown": 4,
+    "lup": 8,
+    "rdown": 1,
+    "rup": 2
+   },
+   {
+    "alarm": 8,
+    "gamea": 4,
+    "gameb": 2,
+    "time": 1
+   }
+  ],
+  "cpu": "sm5a",
+  "fixed_column": null,
+  "maker": "bootleg (Elektronika)",
+  "mux_columns": 3,
+  "pins": {},
+  "screens": 1,
+  "title": "Vesyolye futbolisty"
+ }
+}

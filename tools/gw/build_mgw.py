@@ -21,6 +21,7 @@ import io, json, os, struct, subprocess, sys, tarfile, bz2, zlib, tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from svg2segs import read_png
+import artwork
 
 # ---------------------------------------------------------------- rle encoder
 
@@ -130,217 +131,153 @@ def build_panel(segdir, layout, title='LCD'):
 
 # ---------------------------------------------------------------- artwork
 
-def load_artwork(zip_path):
-    """A MAME external artwork pack: the full unit PNG plus a default.lay
-    that positions the emulated screen inside it. Returns the panel rgba
-    and the LCD window rectangle in panel-pixel space."""
-    import zipfile, re as _re
-    z = zipfile.ZipFile(zip_path)
-    names = z.namelist()
-    lay = z.read([n for n in names if n.lower().endswith('.lay')][0]).decode()
+def load_artwork(zip_path, max_panel=artwork.MAX_PANEL):
+    """A MAME external artwork pack: the scans of the handheld plus a
+    default.lay placing the emulated screen among them. artwork.py picks
+    the view, composites the unit and reports the screen window; see the
+    notes there for how the packs differ."""
+    return artwork.render(zip_path, max_panel=max_panel)
 
-    # largest PNG is the full-unit scan
-    pngs = [n for n in names if n.lower().endswith('.png') and '/' not in n]
-    art_name = max(pngs, key=lambda n: z.getinfo(n).file_size)
-    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as f:
-        f.write(z.read(art_name)); tmp = f.name
-    aw, ah, argba = read_png(tmp)
-    os.unlink(tmp)
 
-    def bounds(tag):
-        m = _re.search(r'<%s[^>]*>\s*<bounds ([^/]+)/>' % tag, lay) or \
-            _re.search(r'<%s\b[^/]*\bx=' % tag, lay)
-        return None
-    # screen window: the <screen ... blend="multiply"> bounds
-    ms = _re.search(r'<screen index="0" blend="multiply"\s*>\s*<bounds x="([-\d.]+)" y="([-\d.]+)" width="([\d.]+)" height="([\d.]+)"', lay)
-    sx, sy, sw, sh = (float(v) for v in ms.groups())
-    # art element bounds: the element ref whose PNG is the full unit,
-    # identified by matching the element name to the art file stem
-    stem = os.path.splitext(art_name)[0]
-    me = _re.search(r'<element name="%s"' % _re.escape(stem), lay)
-    # its draw bounds in the main view: find first <element ref="stem"> ... <bounds>
-    mr = _re.search(r'<element ref="%s"\s*>\s*<bounds x="([-\d.]+)" y="([-\d.]+)" width="([\d.]+)" height="([\d.]+)"' % _re.escape(stem), lay)
-    ax, ay, awu, ahu = (float(v) for v in mr.groups())
+# What the artwork community calls each press image. The layouts are not
+# always renumbered when a driver's ports are, so gnw_helmet's .lay still
+# says the Game A button reports IN.0 when the driver has moved it to
+# IN.2; the file name did not drift.
+PRESS_NAMES = {
+    'left-flat': 'left', 'right-flat': 'right',
+    'up-flat': 'up', 'down-flat': 'down',
+    'grey-flat-1': 'gamea', 'grey-flat-2': 'gameb', 'grey-flat-3': 'time',
+    'grey-flat-1p': 'gamea', 'grey-flat-2p': 'gameb', 'grey-flat-3p': 'time',
+}
 
-    scale_x = aw / awu
-    scale_y = ah / ahu
-    lcd = [round((sx - ax) * scale_x), round((sy - ay) * scale_y),
-           round(sw * scale_x), round(sh * scale_y)]
-    return aw, ah, argba, lcd
 
-# Button tap zones per game, in full-unit pixel space (x, y, w, h, action).
-# The .lay's control group carries only full-image press overlays, so the
-# real button rectangles are located directly in the art. action is a K
-# bitmask (int) or 'ba'/'b' for the two joystick pins.
+def artwork_tapzones(zip_path, panel, wiring):
+    """Tap rectangles straight from the pack's press images.
+
+    artwork.buttons() reports where each button is and which input it
+    reports, as an inputtag and inputmask; the wiring says which action
+    that input is. Games whose pack carries no press images fall back to
+    the hand-measured table below.
+    """
+    zones = []
+    for b in artwork.buttons(zip_path, panel):
+        tag, mask = b['tag'], b['mask']
+        act = None
+        if tag.startswith('IN.'):
+            i = int(tag[3:])
+            cols = wiring['columns']
+            if i < len(cols):
+                act = next((a for a, m in cols[i].items() if m == mask), None)
+        elif tag.lower() in ('ba', 'b'):
+            pin = wiring.get('pins', {}).get(tag.lower())
+            act = pin['action'] if pin else None
+        if act is None:
+            # stale port numbering in the layout: fall back to the name,
+            # but only to an action this game actually has
+            named = PRESS_NAMES.get((b.get('ref') or '').lower())
+            known = {a for c in wiring['columns'] for a in c}
+            known |= {p['action'] for p in wiring.get('pins', {}).values()}
+            if named in known:
+                act = named
+        if act:
+            zones.append(tuple(b['rect']) + (act,))
+    return zones
+
+
+# Hand-measured fallback, in the .lay's own view coordinates (x, y, w, h,
+# action) so they hold at any panel resolution. Only needed for packs
+# that ship no press images.
 ARTWORK_BUTTONS = {
     'gnw_ball': [
-        (212,  995, 165, 130, 'b'),    # LEFT red button
-        (1850, 990, 175, 135, 'ba'),   # RIGHT red button
-        (1085, 1250, 140, 100, 4),     # GAME A
-        (1320, 1250, 140, 100, 2),     # GAME B
-        (1550, 1250, 140, 100, 1),     # TIME
+        ( 484.9, 669.0,  87.1, 68.6, 'left'),
+        (1349.1, 666.3,  92.3, 71.2, 'right'),
+        ( 945.5, 803.5,  73.9, 52.8, 'gamea'),
+        (1069.5, 803.5,  73.9, 52.8, 'gameb'),
+        (1190.8, 803.5,  73.9, 52.8, 'time'),
     ],
 }
 
+# Which retropad buttons stand in for each action. A unit's own buttons
+# are the tap zones; this is the fallback for playing on a pad, and only
+# the actions a game actually has get wired.
+RETROPAD = {
+    'start': ['start'], 'pause': ['select'], 'sound': ['l3'],
+    'select': ['r2'],
+    'gamea': ['start', 'l1'], 'gameb': ['r1'], 'time': ['l2'],
+    'left': ['left'], 'right': ['right'], 'up': ['up'], 'down': ['down'],
+    'lup': ['up'], 'ldown': ['down'], 'rup': ['x'], 'rdown': ['b'],
+    'b1': ['a'], 'b2': ['y'], 'hit': ['y', 'x'], 'jump': ['a'],
+    'punch': ['a'], 'fire': ['a'], 'shoot': ['a'],
+}
+
+
+def load_inputs():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'inputs.json')
+    return json.load(open(path)) if os.path.exists(path) else {}
+
+
+def render_game(tmpl, title, wiring, layout, segdefs, tapzones):
+    """Fill a game template from the wiring extracted by
+    extract_inputs.py. Column indices go 1-based for Lua. Both chips
+    read K the same way; only what does the selecting differs, and the
+    template says which."""
+    cols = wiring['columns']
+    fixed = wiring['fixed_column']
+    btn, actions = [], []
+    for i, col in enumerate(cols):
+        for act in sorted(col):
+            btn.append("  [ '%s' ] = { %d, %d }," % (act, i + 1, col[act]))
+            actions.append(act)
+    pins = wiring.get('pins', {})
+    for pin in ('ba', 'b'):
+        if pin in pins:
+            actions.append(pins[pin]['action'])
+
+    presses = []
+    for act in sorted(set(actions)):
+        keys = RETROPAD.get(act)
+        if not keys:
+            continue
+        cond = ' or '.join('newstate.%s' % k for k in keys)
+        presses.append("  if %s then press( '%s' ) end" % (cond, act))
+
+    pinlines, idle = [], {}
+    for pin in ('ba', 'b'):
+        d = pins.get(pin)
+        if not d:
+            idle[pin] = 1          # unwired pins are pulled up
+            continue
+        on, off = (1, 0) if not d['active_low'] else (0, 1)
+        idle[pin] = off
+        pinlines.append("  %s = held[ '%s' ] and %d or %d"
+                        % (pin, d['action'], on, off))
+
+    return (tmpl.replace('@TITLE@', title)
+                .replace('@COLS_INIT@', ', '.join(['0'] * max(1, len(cols))))
+                .replace('@MUXCOLS@', str(wiring['mux_columns']))
+                .replace('@FIXED@', str(fixed + 1 if fixed is not None else 0))
+                .replace('@BA_IDLE@', str(idle['ba']))
+                .replace('@B_IDLE@', str(idle['b']))
+                .replace('@LCD_X@', str(layout['lcd_x']))
+                .replace('@LCD_Y@', str(layout['lcd_y']))
+                .replace('@SEGDEFS@', '\n'.join(segdefs))
+                .replace('@BUTTONMAP@', '\n'.join(btn))
+                .replace('@TAPZONES@', '\n'.join(tapzones))
+                .replace('@PRESSES@', '\n'.join(presses) + '\n')
+                .replace('@PINS@', ('\n'.join(pinlines) + '\n') if pinlines else ''))
+
 # ---------------------------------------------------------------- game lua
-
-GAME_LUA = '''-- {title}: generated from the MAME romset by build_mgw.py.
--- The chip is a Lua port of MAME's SM5A core; the segments come from
--- the romset's own SVG. This unit drives the gw runtime directly.
-
-local sm5a = system.loadunit 'sm5a'
-
--- buzzer: R toggles at tone frequency; count edges per frame and gate
--- a looped square of the measured pitch
-local redges, rint, rlastdiv = 0, 0, -1
-
-local cpu = sm5a.new{{
-  rom = system.loadbin 'rom.bin',
-  read_k  = function() return _K end,
-  read_ba = function() return _BA end,
-  read_b  = function() return _B end,
-  write_r = function( out )
-    redges = redges + 1
-  end,
-}}
-cpu:reset()
-
-local snd2048 = system.newsound()
-snd2048.data = system.loadbin 'sq2048.pcm'
-snd2048.loop = true
-local snd2731 = system.newsound()
-snd2731.data = system.loadbin 'sq2731.pcm'
-snd2731.loop = true
-local buzzing = nil
-
-_K, _BA, _B = 0, 1, 1
-
--- panel
-local bgimg = system.newimage()
-bgimg.picture.data = system.loadbin 'background.rle'
-system.setbackground( bgimg.picture )
--- detach: the panel lives in the background framebuffer now, and a
--- 400k-pixel sprite would overflow the sprite save buffer (compatinit
--- does exactly this after its own setbackground)
-bgimg.picture = nil
-bgimg.visible = false
-
--- segments
-local LCD_X, LCD_Y = {lcd_x}, {lcd_y}
-local segdefs = {{
-{segdefs}
-}}
-
-local segimgs = {{}}
-for i = 1, #segdefs do
-  local d = segdefs[ i ]
-  local img = system.newimage()
-  img.picture.data = system.loadbin( d[ 4 ] )
-  img.left = LCD_X + d[ 2 ]
-  img.top  = LCD_Y + d[ 3 ]
-  img.visible = false
-  segimgs[ d[ 1 ] ] = img
-end
-
--- buttons: retropad map and tap rectangles
-local tapzones = {{
-{tapzones}
-}}
-
-local CYCLES_PER_FRAME = 16384 / 60
-local acc = 0
-local newstate = {{}}
-local pointer_was = false
-
-return function()
-  -- the core never calls rl_sound_init, so the mixer boots muted;
-  -- compatinit unmutes it exactly this way every tick
-  if not system.issoundactive() then
-    system.resumesounds()
-  end
-
-  system.inputstate( newstate )
-
-  local k, ba, b = 0, 1, 1
-  if newstate.l1 or newstate.start then k = k | 4 end      -- Game A
-  if newstate.r1 then k = k | 2 end                        -- Game B
-  if newstate.l2 or newstate.select then k = k | 1 end     -- Time
-  if newstate.right or newstate.a then ba = 0 end
-  if newstate.left or newstate.b then b = 0 end
-
-  -- taps on the drawn buttons
-  if newstate.pointer_pressed then
-    local x, y = newstate.pointer_x, newstate.pointer_y
-    for i = 1, #tapzones do
-      local z = tapzones[ i ]
-      if x >= z[ 1 ] and x < z[ 1 ] + z[ 3 ] and
-         y >= z[ 2 ] and y < z[ 2 ] + z[ 4 ] then
-        local what = z[ 5 ]
-        if what == 'ba' then ba = 0
-        elseif what == 'b' then b = 0
-        else k = k | what end
-        break
-      end
-    end
-  end
-
-  _K, _BA, _B = k, ba, b
-
-  redges = 0
-  acc = acc + CYCLES_PER_FRAME
-  local n = acc // 1
-  acc = acc - n
-  local div0 = cpu.div
-  cpu:run( n )
-
-  -- gate the buzzer: a burst is running when R toggled this frame.
-  -- Pitch from the toggle rate: edges per frame over the frame's
-  -- cycles gives the frequency directly.
-  if redges >= 4 then
-    local hz = redges * 16384 / (2 * n)
-    local want = (hz > 2350) and snd2731 or snd2048
-    if buzzing ~= want then
-      if buzzing then system.stopsounds( -1 ) end
-      system.playsound( want, -1 )   -- -1: pick a free channel
-      buzzing = want
-    end
-  elseif buzzing then
-    system.stopsounds( -1 )
-    buzzing = nil
-  end
-
-  -- mirror chip segment state into sprite visibility
-  local on = (cpu.bp & 1) == 1
-  for i = 1, #segdefs do
-    local d = segdefs[ i ]
-    local o = d[ 5 ]; local yy = d[ 6 ]; local hh = d[ 7 ]
-    local nib = (hh == 1) and cpu.ox[ o ] or cpu.o[ o ]
-    segimgs[ d[ 1 ] ].visible = on and ((nib >> yy) & 1) == 1
-  end
-
-  return true
-end
-'''
 
 MAIN_LUA = "return system.loadunit 'game'\n"
 
 # ---------------------------------------------------------------- build
 
-# SM510 games mux K inputs through the S strobe. Per game, map a logical
-# action to (column_index, k_bit); read_k ORs the pressed bits of columns
-# S has selected. From each game's INPUT_PORTS in the MAME driver.
-INPUT_MAPS_SM510 = {
-    'gnw_stennis': {
-        'down': (0, 0x1), 'up': (0, 0x2), 'hit': (0, 0x8),
-        'time': (1, 0x1), 'gameb': (1, 0x2), 'gamea': (1, 0x4),
-        'alarm': (1, 0x8),
-    },
-    'trthuball': {   # Tronica Thunder Ball (shares trsrescue ports)
-        'right': (0, 0x1), 'left': (0, 0x8),
-        'alarm': (1, 0x1), 'gameb': (1, 0x2), 'gamea': (1, 0x4),
-        'time': (1, 0x8),
-    },
-}
+# The stock core saves the pixels under every visible sprite into a fixed
+# 384k-pixel buffer with no bounds check (RL_BG_SAVE_SIZE in
+# retroluxury). A unit whose segments together exceed it dies with
+# SIGBUS the moment enough of them light at once, and Tiger units light
+# everything at power-on. Panels are scaled until the worst case fits.
+SEG_PIXEL_BUDGET = int(384 * 1024 * 0.92)
 
 
 def main():
@@ -348,27 +285,45 @@ def main():
     artwork_zip = sys.argv[5] if len(sys.argv) > 5 else None
     shortname = sys.argv[6] if len(sys.argv) > 6 else None
     chip = sys.argv[7] if len(sys.argv) > 7 else 'sm5a'
+    max_w = int(sys.argv[8]) if len(sys.argv) > 8 else None
     manifest = json.load(open(os.path.join(segdir, 'segments.json')))
     lw, lh = manifest.pop('_canvas')
 
     files = {}
 
     if artwork_zip:
-        pw, ph, rgba, lcd = load_artwork(artwork_zip)
+        panel = load_artwork(artwork_zip,
+                             max_panel=(max_w, max_w) if max_w else artwork.MAX_PANEL)
+        pw, ph, rgba, lcd = panel.w, panel.h, panel.rgba, panel.lcd
         layout = {'panel_w': pw, 'panel_h': ph,
                   'lcd_x': lcd[0], 'lcd_y': lcd[1], 'lcd_w': lcd[2], 'lcd_h': lcd[3],
                   'artwork': True,
-                  'tapzones_px': ARTWORK_BUTTONS.get(shortname, [])}
+                  'tapzones_px': []}
+        wiring = load_inputs().get(shortname)
+        zones = artwork_tapzones(artwork_zip, panel, wiring) if wiring else []
+        if zones:
+            print('%d tap zones from the pack\'s press images' % len(zones))
+        else:
+            zones = [panel.to_panel_rect(b[:4]) + (b[4],)
+                     for b in ARTWORK_BUTTONS.get(shortname, [])]
+            if zones:
+                print('%d tap zones from the hand-measured table' % len(zones))
+            else:
+                print('warning: no tap zones; %s is joypad-only' % shortname)
+        layout['tapzones_px'] = zones
+        if len(panel.lcds) > 1:
+            print('warning: %s has %d screens; only screen 0 is packaged'
+                  % (os.path.basename(artwork_zip), len(panel.lcds)))
     else:
         layout = {
             'panel_w': max(480, lw), 'panel_h': lh + 190,
             'lcd_x': 0, 'lcd_y': 50, 'lcd_w': lw, 'lcd_h': lh, 'artwork': False,
             'buttons': [
-                {'label': 'LEFT',   'shape': 'round', 'rect': [36,  lh+80, 64, 64], 'act': 'b'},
-                {'label': 'RIGHT',  'shape': 'round', 'rect': [560, lh+80, 64, 64], 'act': 'ba'},
-                {'label': 'GAME A', 'shape': 'pill',  'rect': [566, 10, 64, 22], 'act': 4},
-                {'label': 'GAME B', 'shape': 'pill',  'rect': [478, 10, 64, 22], 'act': 2},
-                {'label': 'TIME',   'shape': 'pill',  'rect': [390, 10, 64, 22], 'act': 1},
+                {'label': 'LEFT',   'shape': 'round', 'rect': [36,  lh+80, 64, 64], 'act': 'left'},
+                {'label': 'RIGHT',  'shape': 'round', 'rect': [560, lh+80, 64, 64], 'act': 'right'},
+                {'label': 'GAME A', 'shape': 'pill',  'rect': [566, 10, 64, 22], 'act': 'gamea'},
+                {'label': 'GAME B', 'shape': 'pill',  'rect': [478, 10, 64, 22], 'act': 'gameb'},
+                {'label': 'TIME',   'shape': 'pill',  'rect': [390, 10, 64, 22], 'act': 'time'},
             ],
         }
 
@@ -387,46 +342,47 @@ def main():
 
     if not layout['artwork']:
         pw, ph, rgba = build_panel(segdir, layout, title)
-    else:
-        # The unit's screen window is dark in the scan; paint it with the
-        # classic LCD grey-green so the dark segments read against it, the
-        # way an idle Game & Watch panel looks.
-        lx, ly, lwd, lhd = layout['lcd_x'], layout['lcd_y'], layout['lcd_w'], layout['lcd_h']
-        LCD = (150, 161, 143)
-        PW = layout['panel_w']
-        for yy in range(ly, ly + lhd):
-            base = (yy * PW + lx) * 4
-            for xx in range(lwd):
-                o = base + xx * 4
-                rgba[o] = LCD[0]; rgba[o+1] = LCD[1]; rgba[o+2] = LCD[2]; rgba[o+3] = 255
+    # An artwork panel arrives ready: artwork.py keeps a printed LCD
+    # background where the pack has one and supplies LCD grey-green
+    # where it does not.
     files['background.rle'] = encode_rle(layout['panel_w'], layout['panel_h'], rgba)
     print('panel %dx%d -> %d bytes rle' % (pw, ph, len(files['background.rle'])))
 
-    segdefs, total = [], 0
+    if abs(lw - layout['lcd_w']) > 2 or abs(lh - layout['lcd_h']) > 2:
+        print('warning: segments rendered %dx%d but the LCD window is %dx%d; '
+              're-run svg2segs.py at width %d'
+              % (lw, lh, layout['lcd_w'], layout['lcd_h'], layout['lcd_w']))
+
+    segdefs, total, used_px = [], 0, 0
     for name in sorted(manifest):
         m = manifest[name]
         w, h, px = read_png(os.path.join(segdir, m['file']))
         fn = m['file'].replace('.png', '.rle')
         files[fn] = encode_rle(w, h, px)
         total += len(files[fn])
+        used_px += struct.unpack('>I', files[fn][4:8])[0]
         o, yy, hh = (int(t) for t in name.split('.'))
         segdefs.append("  { '%s', %d, %d, '%s', %d, %d, %d }," %
                        (name, m['x'], m['y'], fn, o, yy, hh))
-    print('%d segments -> %d bytes rle' % (len(segdefs), total))
+    print('%d segments -> %d bytes rle, %d px worst-case' %
+          (len(segdefs), total, used_px))
+    if used_px > SEG_PIXEL_BUDGET:
+        # pixels scale with width squared
+        scale = (SEG_PIXEL_BUDGET / used_px) ** 0.5
+        print('SEGPX_OVER used=%d budget=%d rescale=%.4f' %
+              (used_px, SEG_PIXEL_BUDGET, scale))
+        raise SystemExit(3)
 
     tapzones = []
     if layout['artwork']:
         for (x, y, w, h, act) in layout['tapzones_px']:
-            actlua = "'%s'" % act if isinstance(act, str) else str(act)
-            tapzones.append('  { %d, %d, %d, %d, %s },' % (x, y, w, h, actlua))
+            tapzones.append("  { %d, %d, %d, %d, '%s' }," % (x, y, w, h, act))
     else:
         for b in layout['buttons']:
-            act = b['act']
-            actlua = "'%s'" % act if isinstance(act, str) else str(act)
             r = b['rect']
             pad = 14 if b['shape'] == 'round' else 8
-            tapzones.append('  { %d, %d, %d, %d, %s },' %
-                            (r[0]-pad, r[1]-pad, r[2]+2*pad, r[3]+2*pad, actlua))
+            tapzones.append("  { %d, %d, %d, %d, '%s' }," %
+                            (r[0]-pad, r[1]-pad, r[2]+2*pad, r[3]+2*pad, b['act']))
 
     here = os.path.dirname(os.path.abspath(__file__))
     root = os.path.dirname(os.path.dirname(here))
@@ -439,24 +395,20 @@ def main():
             m = manifest[name]
             fn = m['file'].replace('.png', '.rle')
             sdefs.append("  { '%s', %d, %d, '%s' }," % (name, m['x'], m['y'], fn))
-        imap = INPUT_MAPS_SM510.get(shortname, {})
-        ncols = max((c for c, _ in imap.values()), default=0) + 1
-        buttonmap = '\n'.join("  ['%s'] = { %d, %d }," % (a, c, b)
-                              for a, (c, b) in imap.items())
+        wiring = load_inputs().get(shortname)
+        if wiring is None:
+            raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
         tmpl = open(os.path.join(here, 'game_sm510.lua.tmpl')).read()
-        game = (tmpl.replace('@TITLE@', title)
-                    .replace('@COLS_INIT@', ', '.join(['0'] * ncols))
-                    .replace('@LCD_X@', str(layout['lcd_x']))
-                    .replace('@LCD_Y@', str(layout['lcd_y']))
-                    .replace('@SEGDEFS@', '\n'.join(sdefs))
-                    .replace('@BUTTONMAP@', buttonmap)
-                    .replace('@TAPZONES@', '\n'.join(tapzones)))
-        files['game.lua'] = game.encode()
+        files['game.lua'] = render_game(tmpl, title, wiring, layout,
+                                        sdefs, tapzones).encode()
         files['sm510.lua'] = open(os.path.join(root, 'sm510/sm510.lua'), 'rb').read()
     else:
-        files['game.lua'] = GAME_LUA.format(
-            title=title, lcd_x=layout['lcd_x'], lcd_y=layout['lcd_y'],
-            segdefs='\n'.join(segdefs), tapzones='\n'.join(tapzones)).encode()
+        wiring = load_inputs().get(shortname)
+        if wiring is None:
+            raise SystemExit('no input wiring for %r: run extract_inputs.py' % shortname)
+        tmpl = open(os.path.join(here, 'game_sm5a.lua.tmpl')).read()
+        files['game.lua'] = render_game(tmpl, title, wiring, layout,
+                                        segdefs, tapzones).encode()
         files['sm5a.lua'] = open(os.path.join(root, 'sm510/sm5a.lua'), 'rb').read()
 
     files['rom.bin'] = open(rom_path, 'rb').read()

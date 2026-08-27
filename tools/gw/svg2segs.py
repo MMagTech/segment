@@ -75,12 +75,26 @@ def main():
     os.makedirs(outdir, exist_ok=True)
     svg = open(svg_path).read()
 
-    # innermost <g> blocks that carry a segment title
+    # Blocks carrying exactly one segment title. Most romsets wrap each
+    # segment in its own <g>, but some mark the shape itself instead
+    # (Chef does both, 11 groups and 61 bare paths), so any drawable tag
+    # counts. "Exactly one" is what separates a segment from a container
+    # that happens to hold segments.
+    cands = []
+    for tag in ('g', 'path', 'rect', 'circle', 'ellipse', 'polygon', 'polyline'):
+        for m in re.finditer(r'<%s\b(?:(?!<%s\b).)*?</%s>' % (tag, tag, tag), svg, re.S):
+            titles = [t for t in re.findall(r'<title[^>]*>([^<]+)</title>', m.group(0))
+                      if SEG_RE.match(t.strip())]
+            if len(titles) == 1:
+                cands.append((m.span(), titles[0].strip(), tag))
+    # outermost wins, so a segment wrapped in its own group is hidden as
+    # the group rather than as the shape inside it
+    cands.sort(key=lambda c: (c[0][0], -c[0][1]))
     groups = []
-    for m in re.finditer(r'<g\b(?:(?!<g\b).)*?</g>', svg, re.S):
-        t = re.search(r'<title[^>]*>([^<]+)</title>', m.group(0))
-        if t and SEG_RE.match(t.group(1)):
-            groups.append((m.span(), t.group(1)))
+    for span, name, tag in cands:
+        if groups and span[0] < groups[-1][0][1]:
+            continue                      # nested inside one already taken
+        groups.append((span, name, tag))
     names = [g[1] for g in groups]
     print('%d segments found' % len(names))
 
@@ -88,12 +102,13 @@ def main():
         # hide every segment group not in `keep`
         out = []
         last = 0
-        for (s, e), name in groups:
+        for (s, e), name, tag in groups:
             out.append(svg[last:s])
             if name in keep:
                 out.append(svg[s:e])
             else:
-                out.append(re.sub(r'^<g\b', '<g display="none"', svg[s:e], count=1))
+                out.append(re.sub(r'^<%s\b' % tag, '<%s display="none"' % tag,
+                                  svg[s:e], count=1))
             last = e
         out.append(svg[last:])
         body = ''.join(out)

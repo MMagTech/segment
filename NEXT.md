@@ -1,45 +1,110 @@
 # Start here (next session)
 
-The foundation is complete and committed. Both chip cores (SM5A, SM510)
-are ported from MAME and verified against it; Ball (SM5A) plays with real
-artwork + sound; Snoopy Tennis (SM510) plays. Pipeline builds both chips
-into playable .mgw on the stock gw-libretro core. See FINDINGS.md for the
-full technical record.
+Both chip cores (SM5A, SM510) are ported from MAME and verified against
+it; Ball (SM5A) and Snoopy Tennis (SM510) both play with real artwork
+and sound. The artwork loader now generalizes across the whole pack
+corpus, so the pipeline is no longer tied to hand-tuned per-game data
+for the panel. See FINDINGS.md for the full technical record.
 
-## Assets on disk (gitignored — your own files)
-- `roms/mame/` — 162 of 175 driver romsets (MAME 0.260 non-merged)
-- `roms/artwork/` — 157 of 175 console artwork packs (1.6G)
+## Assets on disk (gitignored, your own files)
+- `roms/mame/`: 162 of 175 driver romsets (MAME 0.260 non-merged)
+- `roms/artwork/`: 157 of 175 console artwork packs (1.6G)
 - Both were copied from the NAS / Drive archives; ROMs and artwork are
   never committed (tool-not-payload; see README).
 
+## Done: artwork generalization (2026-08-27)
+
+`tools/gw/artwork.py` renders any MAME external artwork pack down to one
+panel plus its screen rectangle. All 157 packs render; cross-checked
+against each romset's own SVG aspect ratio, none of the 148 checkable
+packs is more than 12% off. Ball's generated `game.lua` is byte-identical
+to the previous build, so the geometry is a strict generalization, not a
+change. Details and the shape of the corpus are in FINDINGS.md.
+
+## Standing rule: English is the default
+
+Never build a foreign-language unit when the same game is available in
+English. This does not mean avoiding foreign-language units: where no
+English version of that game exists, build it.
+
+As the corpus stands the rule excludes nothing, and it is worth knowing
+why before someone applies it more aggressively. Of the 144 romsets with
+both a ROM and an artwork pack on disk, 135 are English (Nintendo,
+Tiger, Konami, Tronica) and 9 are Cyrillic (Elektronika). MAME files
+eight of the nine as clones of gnw_mmouse or gnw_octopus, but they are
+not translations: they run the same chip program with entirely different
+LCD art, so Hockey, Biathlon and Ataka asteroidov look nothing like
+Mickey Mouse. Each is its own product with no English edition.
+
+Checked directly: 11 titles in the corpus are held by more than one
+romset, and every one of them is Nintendo against Nintendo, a hardware
+variant such as Wide Screen against Panorama or Silver against Gold.
+Not one pair differs by language. So no game currently has both an
+English and a foreign edition to choose between.
+
 ## The next task: automation push, in this order
 
-1. **Generalize `tools/gw/build_mgw.py`'s `load_artwork()` across .lay
-   forms.** It handles Ball's "unit element + screen bounds" form but
-   returns wrong LCD-window bounds on others. Known forms seen:
-   - Ball / trthuball: `<screen blend="multiply">` bounds inside a unit
-     element (but trthuball's numbers came out wrong — debug the element
-     matching + scale).
-   - kdribble: "Backdrop, Overlay" — screen fills the whole view, a `bg`
-     overlay (transparent window) on top. Different math.
-   Make it robust, then...
+1. ~~Batch-build the single-screen games.~~ **Done 2026-08-27, both
+   chips: 88 of 88 single-screen SM5A+SM510 games build, 86 boot
+   and respond, every game with tap zones has taps
+   byte-identical to the pad.** The batch survived two systemic finds,
+   both in FINDINGS: the stock core's 384k-pixel sprite save-under
+   budget (build now measures worst case and rescales the panel to
+   fit), and Tiger's IPT_START wiring. Known issues, all Tiger:
+   - tgaiden, tvindictr: build and run but ignore all input; wiring is
+     identical to working siblings (tbatman), cause not yet found.
+   - tbatfor, tjdredd, trockteer: their segments stack ~4 layers of
+     75%-alpha artwork over the whole screen, so fitting the core's
+     budget forces the panel down to ~240px wide. Built and responding,
+     but visibly low-resolution; the honest fix is a bounds check (or a
+     bigger RL_BG_SAVE_SIZE) upstream, worth raising alongside PR #85.
+   - trobhood: ports used PORT_INCLUDE; the extractor resolves it now,
+     and Robin Hood responds.
 
-2. **Batch-build the ~17 SM5A games that have real art** (simplest case:
-   direct K input, no muxing, no melody). This proves the pipeline
-   generalizes beyond n=2 — the whole point. List: run
-   `python3 - <<'PY'` cross-referencing roms/artwork ∩ roms/mame with
-   sm5a_common in sm510/ref/hh_sm510.cpp (see the classify snippet in
-   the 2026-08-27 session, or FINDINGS).
+2. ~~Button rectangles from the art.~~ **Mostly done 2026-08-27.**
+   The packs carry the answer: each ships a full-size overlay drawing one
+   button pressed, tagged with the input it reports, so compositing it
+   over the idle panel and taking the bounding box of the change locates
+   the button and names it. artwork.buttons() does this; all 15 SM5A
+   games whose pack ships those images have every tap verified identical
+   to the pad. See FINDINGS.md.
 
-3. **SM510 input maps + button positions, auto-extracted** from each
-   game's INPUT_PORTS in the driver, so it scales without hand data.
-   Currently only gnw_stennis + trthuball input maps and only gnw_ball
-   ARTWORK_BUTTONS exist.
+   Still open: the 12 SM5A packs that ship no press images (9 Elektronika,
+   2 Tronica, plus trspacmis which has them for its two arrows only).
+   Two detector attempts on the composited panel both fell short and are
+   worth knowing about before a third:
+   - Local contrast against a blurred background finds the small pill
+     buttons and the case lettering, and misses the large smooth round
+     buttons, because the blur follows them.
+   - Distance from the case's dominant colour finds buttons on the
+     plain-cased units but returns nothing on ehockey and trsgkeep,
+     whose bold coloured borders dominate the statistics.
+   A third angle worth trying: these units place their controls in
+   predictable regions relative to the LCD window (a pair left, a pair
+   right, a row or column of small ones). Generous zones by region,
+   assigned by position and then confirmed with the tap-equals-pad
+   check, would be playable even if not pixel-tight, and a wrong guess
+   fails the check rather than shipping.
 
-4. **SM511/SM512 melody core** — ~40 Tiger/Konami games have music.
+3. **Input maps, auto-extracted.** Two sources: the .lay's
+   `inputtag`/`inputmask` attributes where present (verified to
+   reproduce the hand-written `INPUT_MAPS_SM510['gnw_stennis']` exactly,
+   with action names recoverable from element refs like `Hit-Flat`), and
+   each game's INPUT_PORTS in the driver for the rest.
 
-5. **`convert.py` wrapper** (one command: romset.zip + artwork.zip ->
-   .mgw) — LAST, once the pipeline is proven across many games.
+4. **Multi-screen units.** 17 packs have two screens and trtreisl has
+   three (Donkey Kong, Zelda, Oil Panic, Mario Bros and friends).
+   `artwork.render()` already returns every screen rect in `Panel.lcds`
+   and build_mgw warns and packages only screen 0. Needs a game.lua
+   template that drives two segment sets.
+
+5. **SM511/SM512 melody core**: ~40 Tiger/Konami games have music.
+
+6. **`convert.py` wrapper** (one command: romset.zip + artwork.zip ->
+   .mgw), LAST, once the pipeline is proven across many games. Note it
+   must run artwork.render() first to learn the LCD window size, then
+   svg2segs.py at that width, then build_mgw.py; build_mgw warns if the
+   segments were rendered at the wrong width.
 
 ## Gotchas already learned (all in FINDINGS.md)
 - Divider-phase jitter in both cores is benign for display but watch for
@@ -53,6 +118,10 @@ full technical record.
   headers: `touch gwlua/functions.c` after regenerating any .h.
 - Games built here run on the STOCK core; they don't need PR #85 (that
   fix is only for the 59 MADrigal compat-path games).
+- The bench's `-tap` needs port 2 (`-tap frame,x,y,hold,2`); port 0 is
+  the joypad's and answers nothing. And zsh does not word-split an
+  unquoted `$var`, so building bench arguments in a shell variable
+  silently passes them as one argument and every run looks identical.
 
 ## Separately: upstream
 - Issue #84 / PR #85 (compatinit pointer fix for the 59 existing games)

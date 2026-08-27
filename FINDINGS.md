@@ -582,3 +582,272 @@ melody (not implemented; needed for the Tiger games that have music), and
 the S-strobe K-input muxing for building SM510 games into .mgw (the CPU
 exposes write_s/read_k, but which S bit gates which K column is per-game
 driver logic to replicate in the game.lua template).
+
+## The artwork loader generalized across all 157 packs (2026-08-27)
+
+`build_mgw.py`'s artwork mode worked for one pack. It found the panel by
+taking the largest PNG in the zip and the LCD window by regexing the
+first `<screen blend="multiply">` bounds, which happened to be right for
+gnw_ball and silently wrong elsewhere: on trthuball the largest file is
+the printed LCD background, not the unit, so the window landed nowhere
+near the screen. That is now `tools/gw/artwork.py`, which renders any
+pack down to one panel and its screen rectangle.
+
+The packs vary far more than "unit PNG plus screen bounds" suggests. The
+survey across all 157: up to 20 views each, named anything from
+`Unit Only` to `External Layout`; 1055 image elements, 36 `rect` and 2
+`disk`; alpha, multiply and add blends; `element`, `overlay`, `bezel`,
+`collection` and `group` containers; both `x/y/width/height` and
+`left/top/right/bottom` bounds; 33 JPEGs among the PNGs; and 17 units
+with two screens (one with three). No amount of per-pack special-casing
+was going to hold, so nothing in artwork.py keys off a pack's shape.
+
+What it does instead:
+
+- **Pick the view by name, then by geometry.** `Unit Only` beats
+  `Unit and Backdrop` beats a bare `Handheld` view beats
+  `Background Only`; partial-zoom and fan-art variants are demoted. A
+  view is only a candidate if it has both a screen and a unit.
+- **Flatten the view** to a draw list in document order, expanding
+  groups and collections. An element whose only component carries a
+  `state` other than the element's `defstate` is a button
+  press-animation and is dropped: those are laid over the whole unit and
+  otherwise tie with it on bounds, which is how the first attempt picked
+  `Grey-Flat-3` as gnw_ball's panel.
+- **The unit is the largest image that still contains the screen**, with
+  a room backdrop dropped when it is laid down first, spans the whole
+  view, and something else is left. Largest, not smallest: the printed
+  LCD background sits inside the unit and contains the screen too, which
+  is what made tmegaman3 render as a bare grey rectangle. Ties go to the
+  later element, so a unit wins over its own drop shadow.
+- **Its bounds are the panel frame.** That is what crops the room away
+  without needing to know a room is present, and it is why a scene view
+  like gnw_ball's yields the console rather than a console-in-a-room.
+- **Composite everything into that frame** at the unit's own resolution,
+  honouring alpha and multiply. Containment is judged with a tolerance
+  of 3% of the screen, because artists let a screen overhang its
+  background by a few units (trtreisl by 4).
+
+The screen is not painted. It is left as the artwork renders it, so a
+printed LCD background survives, and only filled with LCD grey-green
+when it comes out empty or dark, meaning the pack expected the emulator
+to supply every lit pixel. That flat fill used to be unconditional, and
+it was erasing real art: Snoopy Tennis's tree, doghouse and grass are
+printed on the LCD, not drawn by the chip.
+
+Verification, since "it renders" is not the same as "the window is
+right": every romset carries its own SVG, whose aspect ratio must match
+the screen rectangle the .lay describes. Across the 148 packs with a
+local romset, **none is more than 12% off** and 113 are within 3%; the
+residue is artist slop in hand-placed bounds. All 157 packs render. The
+18 still flagged are the 17 multi-screen units and one pack (vinnpukh)
+whose only view is `Background Only`, both correctly reported rather
+than silently mis-packaged.
+
+Regression evidence: Ball's generated `game.lua` is byte-identical to
+the committed build's, so the new path reproduces the old geometry
+exactly, and a joypad Game A press and a tap on the drawn GAME A button
+still produce identical video and audio hashes. Only `background.rle`
+changed, because the LCD window now carries the scanned LCD surface
+instead of flat grey.
+
+Snoopy Tennis built with artwork proves the SM510 path takes it too:
+1741x1047, same audio hashes as the drawn-panel build in both idle and
+Game A runs, so only the panel differs.
+
+Notes for what comes next:
+
+- Tap zones now live in the .lay's own view coordinates and are mapped
+  through `Panel.to_panel_rect`, so they survive any panel resolution.
+  `MAX_PANEL` caps the panel; native resolution is kept below it, which
+  is how Ball still comes out at 2227x1499.
+- **The .lay cannot give button positions.** 117 packs carry no input
+  tags at all, and of the 39 that do, 38 have exactly two distinct
+  rectangles: the full-unit press overlays, once per view. Button rects
+  have to come from the art itself.
+- **The .lay can give the input map.** For gnw_stennis the tagged
+  elements read IN.0 0x08/0x02/0x01 and IN.1 0x04/0x02/0x01, which is
+  exactly the hand-derived `INPUT_MAPS_SM510['gnw_stennis']`, with names
+  recoverable from the element refs (`Hit-Flat`, `Up-Flat`, `Down-Flat`).
+  For the other 117 it has to come from the driver's INPUT_PORTS.
+- artwork.py needs Pillow and numpy. The hand-rolled `read_png` in
+  svg2segs.py cannot open the packs' JPEGs, and compositing a dozen
+  multi-megapixel layers in pure Python is not worth the purity.
+
+## 25 SM5A games built in a batch (2026-08-27)
+
+The pipeline now runs unattended. 25 SM5A handhelds build from romset
+plus artwork pack and all 25 boot, respond to Game A and drive the
+buzzer, verified headless. Twenty-four of them had never been packaged
+before. Evidence: sm510/evidence/sm5a_batch_25_playing.jpg, one live
+frame per game.
+
+Three things had to be true first, and only one of them was.
+
+**The plan's "simplest case, no muxing" was wrong.** It assumed the SM5A
+games read K directly the way Ball does. Only gnw_ball, gnw_fires and
+gnw_vermin do. Everywhere else MAME wires `piezo_input_w`, which splits
+the R output in two: bit 0 drives the piezo, bits 1 and up drive the
+input mux, and K comes back as the OR of the selected columns plus a
+fixed column if the game called `inp_fixed_last()`. Ball works without
+any of that because it has one column and never looks at the mux. So the
+SM5A template needed the same strobe muxing the SM510 one already had,
+driven from R rather than S. The core needed no change: sm5a.lua already
+hands the game every R write, which is how the sound gating works.
+
+One consequence worth remembering: the buzzer must count transitions of
+R bit 0 alone, not every write_r call. Counting calls was correct while R
+did nothing but beep; once R also scans the keyboard, the scan traffic
+would be heard as a tone.
+
+**The wiring is fully extractable, so no game needs hand data.**
+`tools/gw/extract_inputs.py` reads INPUT_PORTS, `inp_fixed_last()` and
+the machine config out of hh_sm510.cpp and emits tools/gw/inputs.json
+for all 169 games. It reproduces both hand-written maps exactly: the
+gnw_stennis entry equals INPUT_MAPS_SM510's, and gnw_ball's K bits equal
+what Ball's game.lua had hardcoded. It also caught something a hand copy
+would not have: the BA and B test pins are ACTIVE_LOW on Ball and
+ACTIVE_HIGH on Octopus, so assuming Ball's polarity would have left
+Octopus with both directions permanently held.
+
+**svg2segs only understood one of the two ways a romset marks
+segments.** It looked for the innermost `<g>` carrying an `o.y.h` title.
+Chef marks 61 of its 72 segments on the `<path>` itself and only 11 in
+groups, so Chef built with 11 segments and looked empty. The scan now
+accepts any drawable tag and requires the block to carry exactly one
+segment title, which is what separates a segment from a container that
+happens to hold segments. Ball's 68 output files come out byte-identical
+afterwards, so it is a strict generalization. Chef was the only romset
+of the 24 affected, but the count check that found it (titles in the SVG
+against segments in the manifest) is worth running over any new batch.
+
+Verification per game: boot, then compare a 900-frame idle run against
+one with Game A held, on video and audio hashes separately. All 25
+differ on video, 23 on audio. The two that do not are Space Mission and
+Spider, both Tronica shooters whose only other control is left/right, so
+silence through a run that presses nothing but Game A is expected rather
+than a fault; both use the same sm5a_common sound wiring as the games
+that do beep.
+
+Cost: about ten seconds per game end to end, panel compositing included.
+
+## English is the default (2026-08-27)
+
+A standing rule from MMagTech: never build a foreign-language unit when
+the same game is available in English, which is not a rule against
+foreign-language units. Where no English version exists, build it.
+
+Applied to this corpus the rule currently excludes nothing, and the
+reason is worth recording before someone applies it more aggressively.
+Of the 144 romsets with both a ROM and an artwork pack on disk, 135 are
+English (Nintendo, Tiger, Konami, Tronica) and 9 are Cyrillic
+(Elektronika). MAME files eight of the nine as clones of gnw_mmouse or
+gnw_octopus, but clone there means "runs the same chip program", not
+"is the same game": the LCD art differs completely, so Hockey, Biathlon
+and Ataka asteroidov look nothing like Mickey Mouse and have no English
+edition. Checked directly, the 11 titles held by more than one romset
+are all Nintendo hardware variants (Wide Screen against Panorama, Silver
+against Gold, CN-07 against CN-17); not one pair differs by language.
+
+## Button rectangles, taken from the packs themselves (2026-08-27)
+
+The earlier note said the .lay cannot give button positions, and that
+image analysis on the panel would be needed. Both halves were wrong in a
+useful way. The .lay's control group really does carry nothing but
+full-unit bounds, but the images it references are exactly what is
+needed: each is a full-size overlay drawing one button in its pressed
+state, and the element that references it carries the inputtag and
+inputmask naming the input that button reports. Composite one over the
+idle panel, take the bounding box of what changed, and that is the
+button, with its identity attached. No colour heuristics, no hand
+measuring.
+
+It lands where a person would put it. Against the five rectangles
+measured by hand for Ball:
+
+    LEFT    auto (205, 994,170,160)   hand ( 212, 995,165,130)
+    RIGHT   auto (1852, 994,171,165)  hand (1850, 990,175,135)
+    GAME A  auto (1089,1267,124, 72)  hand (1085,1250,140,100)
+    GAME B  auto (1325,1267,124, 72)  hand (1320,1250,140,100)
+    TIME    auto (1561,1267,124, 70)  hand (1550,1250,140,100)
+
+and the proof that matters is behavioural: a tap at the centre of the
+auto-detected GAME A produces output byte-identical to a joypad Game A,
+and the same holds for RIGHT, which goes through the BA pin rather than
+a K column. The change region runs a little wider than the button
+because the artist drew its shadow moving too, which only makes for a
+fairer touch target. Overlaps are shrunk about their centres rather than
+dropped; on this corpus nothing has overlapped yet.
+
+Two things had to be understood first.
+
+**defstate does not decide what an input-bound element draws.** MAME
+drives those from the input, so on an idle panel every one of them is
+unpressed regardless of what defstate says. Reading defstate put every
+button of a `defstate="1"` pack onto the panel already pressed, and left
+no press image to locate it by, which is why gnw_manholeg and trspacmis
+first reported no buttons at all while plainly shipping the images. The
+compositor now asks for state 0 whenever an element is wired to an
+input, and the button finder asks for the highest non-zero state.
+
+**A layout's port numbering can be stale.** gnw_helmet's .lay says its
+Game A button reports IN.0 bit 2, but the driver has since moved those
+inputs to IN.2, so three of its five buttons resolved to nothing. The
+file names did not drift, and the artwork community names them
+consistently (Left-Flat, Right-Flat, Grey-Flat-1/2/3 for Game A, Game B,
+Time), so the name is the fallback when the tag does not resolve, and
+only ever to an action the game actually has.
+
+Coverage: 15 of the 27 SM5A games ship press images and get tap zones.
+The rest are joypad-only and say so at build time. trspacmis is a
+partial case worth knowing about: it ships press images for its two
+arrow buttons but not for Game A, Game B or Time, so those three stay
+untappable even though the pack has artwork for them.
+
+## The 384k save-under budget, and how it presented three ways (2026-08-27)
+
+The first full 88-game build had 38 Tiger games die on load with SIGBUS
+and two Nintendo units (gnw_dkjr, gnw_mbaway's sibling gnw_mariocm) boot
+into a display no input could change. Those looked like three bugs, an
+input bug, a load crash and a freeze, and they are one.
+
+retroluxury saves the pixels under every visible sprite so it can
+restore them next frame, into a fixed static buffer of 384k pixels
+(RL_BG_SAVE_SIZE) with no bounds check. rl_image_blit just walks past
+the end. A unit whose lit segments together exceed the budget corrupts
+whatever sits after the buffer:
+
+- Exceed it hugely (a Tiger unit lighting its whole 2560-wide overlay
+  at power-on, megapixels of segments) and the process dies with SIGBUS
+  during the first frame, which the sweep reports as LOAD-FAIL.
+- Exceed it mildly (gnw_dkjr, 494k) and it survives, but the restore is
+  garbage: the all-on power-on frame bakes into the background
+  framebuffer permanently. From then on the sprites' visibility changes
+  are invisible, so the game looks frozen and dead to input while the
+  chip underneath runs and responds perfectly.
+
+The diagnostic rabbit hole is worth recording because the freeze
+mimics an input bug exactly. The chip traced correct against MAME
+(divider-phase jitter aside), the game logic ran clean under a mocked
+desktop Lua with inputs working, the layout constants were right, and
+the core demonstrably delivered inputs to a sibling game. The tell that
+ended it: a build patched to unconditionally hide every sprite each
+tick still showed all segments on screen, while the packaged background
+decoded clean. Pixels that no sprite explains and no background
+contains are baked save-under corruption.
+
+The fix is at build time, since games must run on the stock core:
+build_mgw sums each segment's opaque pixels (the rle 'used' field) as
+it encodes, and if the worst case, every segment lit at once, exceeds
+92% of the budget, it reports the required rescale and exits; the batch
+then re-renders panel and segments at sqrt(budget/total) of the size
+and retries. Tiger units land around 900px wide, well past legible.
+Worst in the corpus is kdribble (Double Dribble), whose triple-overlay
+segments total 7.6M px and force 480px; it had loaded fine before only
+because its boot lights few segments, and it was a guaranteed mid-game
+crash on the stock core.
+
+Separately, the Tiger games that did load ignored their start button:
+they wire it as IPT_START ("Power On/Start"), which the extractor
+didn't map, so nothing pressed it. IPT_START now maps to a 'start'
+action bound to the retropad's own start button.

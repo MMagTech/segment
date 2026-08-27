@@ -25,9 +25,16 @@ self-contained `.mgw`, running on the existing gw core, playable by tap.
 - `sm510/sm5a.lua` — a Sharp SM5A CPU core in Lua, ported from MAME's
   BSD-3-Clause implementation, verified instruction-exact against MAME.
 - `tools/gw/svg2segs.py` — extracts LCD segments from a romset's SVG.
+- `tools/gw/artwork.py`: renders a MAME external artwork pack down to
+  one handheld panel and the screen rectangle inside it. Run it on a
+  pack to inspect or preview what it finds.
 - `tools/gw/build_mgw.py` — packages ROM + segments (+ optional MAME
   external artwork) into a playable `.mgw`.
 - `tools/bench/` — a headless libretro harness for verification.
+
+Requirements: `rsvg-convert` (`brew install librsvg`) for the segment
+and drawn-panel rendering, and Pillow + numpy for the artwork
+compositing.
 
 Games built this way run on the **stock** released core; they carry
 their own chip emulator and do not need the fix from track 1.
