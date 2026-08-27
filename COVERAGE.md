@@ -6,12 +6,12 @@ regenerate after any batch or asset change.
 | | count |
 |---|---|
 | games in the MAME driver | 175 |
-| built and installed | 167 |
+| built and installed | 171 |
 | of which drawn-panel (no artwork pack yet) | 14 |
 | blocked: no ROM dump locally | 0 |
 | blocked: chip not ported (sm530) | 3 |
 | have ROM, awaiting artwork (playable via drawn panel) | 4 |
-| have ROM + artwork, not yet built | 4 |
+| have ROM + artwork, not yet built | 0 |
 
 ## Have ROM, no artwork pack (4)
 
@@ -54,15 +54,4 @@ Next core ports, same recipe as the three verified ones.
 | nsmb3 | sm530 | Super Mario Bros. 3 (Nelsonic) |
 | nsmw | sm530 | Super Mario World (Nelsonic) |
 | nstarfox | sm530 | Star Fox (Nelsonic) |
-
-## Assets complete but unbuilt (4)
-
-Should be empty; anything here means the batch skipped it.
-
-| romset | chip | title |
-|---|---|---|
-| ecircus | sm5a | Circus (Elektronika) |
-| kosmicpt | sm5a | Kosmicheskiy polyot (Elektronika) |
-| morataka | sm5a | Morskaja ataka (Elektronika) |
-| nochnyev | sm5a | Nochnye vorishki (Elektronika) |
 
