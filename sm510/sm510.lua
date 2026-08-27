@@ -17,13 +17,18 @@
 --     not the SM5A's W/W' shift latches
 --   * an S strobe (WR/WS shift W, PTW outputs it) multiplexes K inputs
 --
--- !! UNVERIFIED !! Written from the MAME source ahead of having any
--- SM510 ROM to run. The SM5A core was proven instruction-exact against
--- MAME before it was trusted; this one has NOT been, because no romset
--- was available at authoring time. Verify it the same way (a lockstep
--- PC/ACC/BL/BM/C trace against MAME) the moment a romset exists, before
--- relying on it. The structure mirrors sm5a.lua so that comparison is
--- straightforward.
+-- Verified against MAME 0.289 on gnw_stennis (Snoopy Tennis, a plain
+-- SM510 game): a lockstep PC/ACC/BL/BM/C trace matches, and the rendered
+-- LCD is identical to MAME's snapshot. The trace carries the same benign
+-- divider-phase jitter the SM5A core has (a handful of TF1/TF4/TIS tests
+-- per 26k instructions land on a divider-bit transition a tick off MAME's
+-- timer phase; the game's timing loops absorb it and the display is
+-- unaffected). Finding this verified one real bug: the TL long-jump
+-- dispatch matched only op 0x70, missing 0x74/0x78 - fixed.
+--
+-- Still unverified: SM511/SM512 melody (not implemented), and the K-input
+-- muxing via the S strobe (the CPU exposes write_s/read_k faithfully, but
+-- which S bit gates which K column lives in the game, not the chip).
 --
 -- Usage mirrors sm5a.lua:
 --   local sm510 = require 'sm510'
@@ -249,8 +254,8 @@ local function execute_one(self)
     elseif q == 0x18 then op_lda(self)
     elseif q == 0x1c then op_exc(self); op_decb(self)               -- EXCD
     elseif q == 0x54 then self.skip = (ram_r(self) & bitmask(op)) ~= 0  -- TMI
-    elseif q == 0x70 and op ~= 0x7c then op_tl(self)                -- TL (70/74/78)
-    elseif op == 0x7c then op_tml(self)
+    elseif q == 0x70 or q == 0x74 or q == 0x78 then op_tl(self)     -- TL (70/74/78)
+    elseif q == 0x7c then op_tml(self)                             -- TML (7c)
     elseif op == 0x00 then                                          -- SKIP
     elseif op == 0x01 then self.bp = self.acc                       -- ATBP
     elseif op == 0x02 then                                          -- SBM (deferred)
